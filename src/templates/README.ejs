@@ -9,26 +9,23 @@
 </p>
 
 ## 🤔 About Me
+
 Hey there! I'm Manikandan, a creative Web Developer from Chennai, 🇮🇳 India. I pride myself on writing clean, well-structured, and high-quality code. I'm always exploring new technologies to expand my skillset and bring innovative solutions to web development challenges.
 
-## 🤝 Connect with me:
+## 🤝 Connect with me
+
 - Personal Website: https://lifeofdev.com
 - LinkedIn: https://www.linkedin.com/in/xqsit94
 - Github: https://github.com/xqsit94
 
-<h2>Latest Posts</h2>
+## 📝 Latest Posts
+<% posts.forEach(function(post){ %>
+- [<%= post.title %>](<%= post.link %>)
+<% }); %>
 
-<ul>
-  <% posts.forEach(function(post){ %>
-  <li><a href="<%= post.link %>"><%= post.title %></a></li>
-  <% }); %>
-</ul>
+## 📈 Github Stats (Past Year)
 
-<h2>Github Stats (Past Year)</h2>
-
-<ul>
-  <li>Total Commits: <strong><%= github.commits.total %></strong></li>
-  <li>Total Stars: <strong><%= github.stars.total %></strong></li>
-  <li>Total PRs: <strong><%= github.pullRequests.total %></strong></li>
-  <li>Total Contributions: <strong><%= github.contributed.total %></strong></li>
-</ul>
+- **Total Commits:** <%= github.commits.total %>
+- **Total Stars:** <%= github.stars.total %>
+- **Total PRs:** <%= github.pullRequests.total %>
+- **Total Contributions:** <%= github.contributed.total %>
