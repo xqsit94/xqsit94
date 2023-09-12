@@ -11,19 +11,19 @@ jobs:
     env:
       GH_ACCESS_TOKEN: ${{ secrets.GH_ACCESS_TOKEN }}
     steps:
-      - uses: actions/checkout@v3
+      - name: Checkout your repository 🛎
+        uses: actions/checkout@v3
 
-      - uses: actions/setup-node@v3
-        with:
-          node-version: '16'
+      - name: Using Bun in the Oven 🍞
+        uses: oven-sh/setup-bun@v1
 
-      - name: Install Dependencies
-        run: yarn install
+      - name: Install Dependencies 📦
+        run: bun install
 
-      - name: Update README
-        run: yarn build
+      - name: Update README 📝
+        run: bun run build
 
-      - name: Commit Changes
+      - name: Commit Changes 🔨
         run: |
           git config user.name github-actions
           git config user.email github-actions@github.com
