@@ -20,6 +20,8 @@ Hey there! I'm Manikandan, a creative Web Developer from Chennai, 🇮🇳 India
 
 ## 📝 Latest Posts
 
+- [Deploy Astro.js Website to GitHub Pages using BUN and GitHub Actions](https://lifeofdev.com/deploy-astrojs-website-github-pages-using-bun-github-actions/)
+
 - [Running Sass in a Vite project](https://lifeofdev.com/running-sass-vite-project/)
 
 - [Asynchronous JavaScript: Exploring Promises with Real-World Examples](https://lifeofdev.com/asynchronous-javascript-exploring-promises-real-world-examples/)
@@ -28,12 +30,10 @@ Hey there! I'm Manikandan, a creative Web Developer from Chennai, 🇮🇳 India
 
 - [Asynchronous JavaScript: Promises, Async/Await, and Callbacks](https://lifeofdev.com/asynchronous-javascript-promises-async-await-callbacks/)
 
-- [Spread Operator and Rest Operator in Javascript](https://lifeofdev.com/spread-operator-rest-operator-javascript/)
-
 
 ## 📈 Github Stats (Past Year)
 
-- **Total Commits:** 36
-- **Total Stars:** 39
-- **Total PRs:** 361
+- **Total Commits:** 39
+- **Total Stars:** 38
+- **Total PRs:** 23
 - **Total Contributions:** 19
