@@ -36,4 +36,4 @@ Hey there! I'm Manikandan, a creative Web Developer from Chennai, 🇮🇳 India
 - **Total Commits:** 39
 - **Total Stars:** 38
 - **Total PRs:** 23
-- **Total Contributions:** 16
+- **Total Contributions:** 15
