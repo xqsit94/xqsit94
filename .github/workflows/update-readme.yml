@@ -3,7 +3,7 @@ name: Update README
 on:
   workflow_dispatch:
   schedule:
-    - cron: '0 0 * * *'
+    - cron: '0 0 * * 0'
 
 jobs:
   scheduled-job:
@@ -12,10 +12,10 @@ jobs:
       GH_ACCESS_TOKEN: ${{ secrets.GH_ACCESS_TOKEN }}
     steps:
       - name: Checkout your repository 🛎
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Using Bun in the Oven 🍞
-        uses: oven-sh/setup-bun@v1
+        uses: oven-sh/setup-bun@v2
 
       - name: Install Dependencies 📦
         run: bun install
