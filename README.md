@@ -20,6 +20,8 @@ Hey there! I'm Manikandan, a creative Web Developer from Chennai, 🇮🇳 India
 
 ## 📝 Latest Posts
 
+- [GitHub CLI (gh): Essential Commands for Developers](https://lifeofdev.com/github-cli-gh-essential-commands/)
+
 - [Git Branching Strategies for a Clean and Efficient Workflow](https://lifeofdev.com/git-branching-strategy-best-practices/)
 
 - [How to Set Neovim (nvim) as the Default Git Editor](https://lifeofdev.com/set-neovim-as-default-git-editor/)
@@ -28,12 +30,10 @@ Hey there! I'm Manikandan, a creative Web Developer from Chennai, 🇮🇳 India
 
 - [Running Sass in a Vite project](https://lifeofdev.com/running-sass-vite-project/)
 
-- [Asynchronous JavaScript: Exploring Promises with Real-World Examples](https://lifeofdev.com/asynchronous-javascript-exploring-promises-real-world-examples/)
-
 
 ## 📈 Github Stats (Past Year)
 
 - **Total Commits:** 45
-- **Total Stars:** 69
-- **Total PRs:** 30
+- **Total Stars:** 71
+- **Total PRs:** 31
 - **Total Contributions:** 8
