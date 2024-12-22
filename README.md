@@ -33,7 +33,7 @@ Hey there! I'm Manikandan, a creative Web Developer from Chennai, 🇮🇳 India
 
 ## 📈 Github Stats (Past Year)
 
-- **Total Commits:** 47
-- **Total Stars:** 73
-- **Total PRs:** 33
+- **Total Commits:** 52
+- **Total Stars:** 74
+- **Total PRs:** 37
 - **Total Contributions:** 8
