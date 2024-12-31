@@ -1,0 +1,16 @@
+{
+  "education": [
+    {
+      "institution": "Madha Engineering College",
+      "degree": "Bachelor of Engineering (B.E.), Computer Science",
+      "startYear": 2012,
+      "endYear": 2016
+    },
+    {
+      "institution": "Assisi Matriculation School - India",
+      "degree": "Primary and Secondary Examinations, General Studies",
+      "startYear": 1997,
+      "endYear": 2012
+    }
+  ]
+}

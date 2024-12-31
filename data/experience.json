@@ -1,0 +1,32 @@
+{
+  "experience": [
+    {
+      "company": "Oreala B.V",
+      "role": "Full Stack Engineer",
+      "startDate": "2022-04",
+      "isCurrent": true,
+      "location": "India"
+    },
+    {
+      "company": "Colan Infotech Private Limited",
+      "role": "Software Engineer",
+      "startDate": "2018-07",
+      "endDate": "2022-03",
+      "location": "Chennai, Tamil Nadu, India"
+    },
+    {
+      "company": "Expose InfoTech India Pvt Ltd",
+      "role": "PHP Developer",
+      "startDate": "2017-12",
+      "endDate": "2018-06",
+      "location": "Calicut Area, India"
+    },
+    {
+      "company": "Slogics Solutions",
+      "role": "Web Developer",
+      "startDate": "2016-11",
+      "endDate": "2017-12",
+      "location": "Chennai Area, India"
+    }
+  ]
+}
