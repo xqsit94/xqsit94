@@ -1,24 +1,36 @@
 package profile
 
 import (
+	"encoding/json"
 	"fmt"
+	"os"
 	"time"
 )
 
 type Experience struct {
-	Company   string
-	Role      string
-	StartDate time.Time
-	EndDate   time.Time
-	Location  string
-	IsCurrent bool
+	Company   string    `json:"company"`
+	Role      string    `json:"role"`
+	StartDate time.Time `json:"-"`
+	EndDate   time.Time `json:"-"`
+	Location  string    `json:"location"`
+	IsCurrent bool      `json:"isCurrent"`
+	StartDateStr string `json:"startDate"`
+	EndDateStr   string `json:"endDate,omitempty"`
 }
 
 type Education struct {
-	Institution string
-	Degree      string
-	StartYear   int
-	EndYear     int
+	Institution string `json:"institution"`
+	Degree      string `json:"degree"`
+	StartYear   int    `json:"startYear"`
+	EndYear     int    `json:"endYear"`
+}
+
+type experienceData struct {
+	Experience []Experience `json:"experience"`
+}
+
+type educationData struct {
+	Education []Education `json:"education"`
 }
 
 func (e Experience) Duration() string {
@@ -52,54 +64,56 @@ func (e Experience) DateRange() string {
 	return fmt.Sprintf("%s - %s", startDate, e.EndDate.Format("Jan 2006"))
 }
 
-func GetExperience() []Experience {
-	return []Experience{
-		{
-			Company:   "Oreala B.V",
-			Role:      "Full Stack Engineer",
-			StartDate: parseDate("2022-04"),
-			IsCurrent: true,
-			Location:  "India",
-		},
-		{
-			Company:   "Colan Infotech Private Limited",
-			Role:      "Software Engineer",
-			StartDate: parseDate("2018-07"),
-			EndDate:   parseDate("2022-03"),
-			Location:  "Chennai, Tamil Nadu, India",
-		},
-		{
-			Company:   "Expose InfoTech India Pvt Ltd",
-			Role:      "PHP Developer",
-			StartDate: parseDate("2017-12"),
-			EndDate:   parseDate("2018-06"),
-			Location:  "Calicut Area, India",
-		},
-		{
-			Company:   "Slogics Solutions",
-			Role:      "Web Developer",
-			StartDate: parseDate("2016-11"),
-			EndDate:   parseDate("2017-12"),
-			Location:  "Chennai Area, India",
-		},
+func loadExperience() ([]Experience, error) {
+	data, err := os.ReadFile("data/experience.json")
+	if err != nil {
+		return nil, fmt.Errorf("error reading experience data: %w", err)
 	}
+
+	var expData experienceData
+	if err := json.Unmarshal(data, &expData); err != nil {
+		return nil, fmt.Errorf("error unmarshaling experience data: %w", err)
+	}
+
+	// Convert date strings to time.Time
+	for i := range expData.Experience {
+		expData.Experience[i].StartDate = parseDate(expData.Experience[i].StartDateStr)
+		if expData.Experience[i].EndDateStr != "" {
+			expData.Experience[i].EndDate = parseDate(expData.Experience[i].EndDateStr)
+		}
+	}
+
+	return expData.Experience, nil
+}
+
+func loadEducation() ([]Education, error) {
+	data, err := os.ReadFile("data/education.json")
+	if err != nil {
+		return nil, fmt.Errorf("error reading education data: %w", err)
+	}
+
+	var eduData educationData
+	if err := json.Unmarshal(data, &eduData); err != nil {
+		return nil, fmt.Errorf("error unmarshaling education data: %w", err)
+	}
+
+	return eduData.Education, nil
+}
+
+func GetExperience() []Experience {
+	experience, err := loadExperience()
+	if err != nil {
+		return []Experience{}
+	}
+	return experience
 }
 
 func GetEducation() []Education {
-	return []Education{
-		{
-			Institution: "Madha Engineering College",
-			Degree:      "Bachelor of Engineering (B.E.), Computer Science",
-			StartYear:   2012,
-			EndYear:     2016,
-		},
-		{
-			Institution: "Assisi Matriculation School - India",
-			Degree:      "Primary and Secondary Examinations, General Studies",
-			StartYear:   1997,
-			EndYear:     2012,
-		},
+	education, err := loadEducation()
+	if err != nil {
+		return []Education{}
 	}
+	return education
 }
 
 func parseDate(date string) time.Time {
