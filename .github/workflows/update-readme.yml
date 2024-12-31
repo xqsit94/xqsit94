@@ -11,19 +11,23 @@ jobs:
     env:
       GH_ACCESS_TOKEN: ${{ secrets.GH_ACCESS_TOKEN }}
     steps:
-      - name: Checkout your repository 🛎
+      - name: Checkout repository 🛎
         uses: actions/checkout@v4
 
-      - name: Using Bun in the Oven 🍞
-        uses: oven-sh/setup-bun@v2
+      - name: Set up Go 🚀
+        uses: actions/setup-go@v5
+        with:
+          go-version: '1.23'
+          cache: true
 
-      - name: Install Dependencies 📦
-        run: bun install
+      - name: Download dependencies 📦
+        run: go mod download
 
-      - name: Update README 📝
-        run: bun run build
+      - name: Build and Run 🔨
+        run: |
+          go run cmd/readme-gen/main.go
 
-      - name: Commit Changes 🔨
+      - name: Commit Changes 📝
         run: |
           git config user.name github-actions
           git config user.email github-actions@github.com
