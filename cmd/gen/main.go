@@ -8,11 +8,17 @@ import (
 	"github.com/joho/godotenv"
 	"github.com/xqsit94/xqsit94/internal/github"
 	"github.com/xqsit94/xqsit94/internal/posts"
+	"github.com/xqsit94/xqsit94/internal/profile"
 )
 
 type TemplateData struct {
-	Posts  []posts.Post
-	Github *github.Stats
+	Posts   []posts.Post
+	Github  *github.Stats
+	Profile struct {
+		Experience      []profile.Experience
+		Education       []profile.Education
+		TotalExperience string
+	}
 }
 
 func main() {
@@ -52,6 +58,15 @@ func main() {
 	data := TemplateData{
 		Posts:  blogPosts,
 		Github: githubStats,
+		Profile: struct {
+			Experience      []profile.Experience
+			Education       []profile.Education
+			TotalExperience string
+		}{
+			Experience:      profile.GetExperience(),
+			Education:       profile.GetEducation(),
+			TotalExperience: profile.CalculateTotalExperience(),
+		},
 	}
 	if err := tmpl.Execute(output, data); err != nil {
 		log.Fatalf("Error executing template: %v", err)
