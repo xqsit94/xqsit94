@@ -18,3 +18,28 @@ I'm a Full-Stack Web Developer from Chennai, 🇮🇳 India. I specialize in cre
 - **Total Stars:** {{.Github.Stars}}
 - **Total PRs:** {{.Github.PullRequests}}
 - **Total Contributions:** {{.Github.Contributed}}
+
+
+<details>
+  <summary>Experience ({{.Profile.TotalExperience}})</summary>
+
+  {{range .Profile.Experience}}#### {{.Company}}
+  *{{.Role}}*
+
+  <sup>{{.DateRange}} ({{.Duration}}) • {{.Location}}</sup>
+
+  ---
+  {{end}}
+</details>
+
+<details>
+  <summary>Education</summary>
+
+  {{range .Profile.Education}}#### {{.Institution}}
+  *{{.Degree}}*
+
+  <sup>{{.StartYear}} - {{.EndYear}}</sup>
+
+  ---
+  {{end}}
+</details>
