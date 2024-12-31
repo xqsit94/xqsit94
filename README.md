@@ -1,16 +1,6 @@
-<p align="center">
-  <a href="https://lifeofdev.com">
-    <img
-      src="assets/signature.png"
-      alt="Hi, 👋 I'm Manikandan. Full-Stack Web Developer (https://lifeofdev.com)."
-      title="Hi, 👋 I'm Manikandan. Full-Stack Web Developer (https://lifeofdev.com)."
-    />
-  </a>
-</p>
+## 👋 Hi, I'm Manikandan
 
-## 🤔 About Me
-
-Hey there! I'm Manikandan, a creative Web Developer from Chennai, 🇮🇳 India. I pride myself on writing clean, well-structured, and high-quality code. I'm always exploring new technologies to expand my skillset and bring innovative solutions to web development challenges.
+I'm a Full-Stack Web Developer from Chennai, 🇮🇳 India. I specialize in creating clean, efficient, and scalable code. Passionate about learning new technologies and delivering innovative solutions.
 
 ## 🤝 Connect with me
 
