@@ -25,7 +25,7 @@ jobs:
 
       - name: Build and Run 🔨
         run: |
-          go run cmd/readme-gen/main.go
+          go run cmd/gen/main.go
 
       - name: Commit Changes 📝
         run: |
