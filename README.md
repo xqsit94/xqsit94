@@ -18,9 +18,9 @@ I'm a Full-Stack Web Developer from Chennai, 🇮🇳 India. I specialize in cre
 
 ## 📈 Github Stats (Past Year)
 
-- **Total Commits:** 73
-- **Total Stars:** 74
-- **Total PRs:** 73
+- **Total Commits:** 76
+- **Total Stars:** 77
+- **Total PRs:** 76
 - **Total Contributions:** 8
 
 
@@ -31,25 +31,25 @@ I'm a Full-Stack Web Developer from Chennai, 🇮🇳 India. I specialize in cre
   *Full Stack Engineer*
 
   <sup>Apr 2022 - Present (2 yr, 9 m) • India</sup>
-  
+
   ---
   #### Colan Infotech Private Limited
   *Software Engineer*
 
   <sup>Jul 2018 - Mar 2022 (3 yr, 8 m) • Chennai, Tamil Nadu, India</sup>
-  
+
   ---
   #### Expose InfoTech India Pvt Ltd
   *PHP Developer*
 
   <sup>Dec 2017 - Jun 2018 (6 m) • Calicut Area, India</sup>
-  
+
   ---
   #### Slogics Solutions
   *Web Developer*
 
   <sup>Nov 2016 - Dec 2017 (1 yr, 1 m) • Chennai Area, India</sup>
-  
+
   ---
   
 </details>
