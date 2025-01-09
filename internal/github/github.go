@@ -14,6 +14,7 @@ type Stats struct {
 	PullRequests int `json:"pullRequests"`
 	Contributed  int `json:"contributed"`
 	Stars        int `json:"stars"`
+	Issues       int `json:"issues"`
 }
 
 type GraphQLResponse struct {
@@ -35,6 +36,9 @@ type GraphQLResponse struct {
 					} `json:"stargazers"`
 				} `json:"nodes"`
 			} `json:"repositories"`
+			Issues struct {
+				Total int `json:"totalCount"`
+			} `json:"issues"`
 		} `json:"user"`
 	} `json:"data"`
 }
@@ -65,6 +69,9 @@ func GetGithubStats() (*Stats, error) {
 						totalCount
 					}
 				}
+			}
+			issues {
+				totalCount
 			}
 		}
 	}`, yearAgo, time.Now().Format(time.RFC3339))
@@ -103,5 +110,6 @@ func GetGithubStats() (*Stats, error) {
 		PullRequests: graphQLResp.Data.User.PullRequests.Total,
 		Contributed:  graphQLResp.Data.User.Contributed.Total,
 		Stars:        totalStars,
+		Issues:       graphQLResp.Data.User.Issues.Total,
 	}, nil
 }
