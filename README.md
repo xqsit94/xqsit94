@@ -18,10 +18,10 @@ I'm a Full-Stack Web Developer from Chennai, 🇮🇳 India. I specialize in cre
 
 ## 📈 Github Stats (Past Year)
 
-- Total Commits: 1260
-- Total Stars: 80
-- Total PRs: 1161
-- Total Contributions: 15
+- Total Commits: 1251
+- Total Stars: 81
+- Total PRs: 1164
+- Total Contributions: 16
 - Total Issues: 86
 
 
