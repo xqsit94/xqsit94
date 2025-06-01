@@ -18,9 +18,9 @@ I'm a Full-Stack Web Developer from Chennai, 🇮🇳 India. I specialize in cre
 
 ## 📈 Github Stats (Past Year)
 
-- Total Commits: 839
+- Total Commits: 799
 - Total Stars: 84
-- Total PRs: 1244
+- Total PRs: 1250
 - Total Contributions: 17
 - Total Issues: 113
 
@@ -31,7 +31,7 @@ I'm a Full-Stack Web Developer from Chennai, 🇮🇳 India. I specialize in cre
   #### Oreala B.V
   *Full Stack Engineer*
 
-  <sup>Apr 2022 - Present (3 yr, 1 m) • India</sup>
+  <sup>Apr 2022 - Present (3 yr, 2 m) • India</sup>
 
   ---
   #### Colan Infotech Private Limited
