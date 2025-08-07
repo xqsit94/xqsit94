@@ -1,10 +1,17 @@
 {
   "experience": [
     {
+      "company": "Sirine.ai B.V",
+      "role": "Full Stack Engineer",
+      "startDate": "2025-07",
+      "isCurrent": true,
+      "location": "India"
+    },
+    {
       "company": "Oreala B.V",
       "role": "Full Stack Engineer",
       "startDate": "2022-04",
-      "isCurrent": true,
+      "endDate": "2025-06",
       "location": "India"
     },
     {
