@@ -4,34 +4,27 @@ I'm a Full-Stack Web Developer from Chennai, 🇮🇳 India. I specialize in cre
 
 ## 🤝 Connect with me
 
-- Personal Website: https://lifeofdev.com
+- Personal Website: https://xqsit94.in
 - LinkedIn: https://www.linkedin.com/in/xqsit94
 - Github: https://github.com/xqsit94
-
-## 📝 Latest Posts
-- [GitHub CLI (gh): Essential Commands for Developers](https://lifeofdev.com/github-cli-gh-essential-commands/)
-- [Git Branching Strategies for a Clean and Efficient Workflow](https://lifeofdev.com/git-branching-strategy-best-practices/)
-- [How to Set Neovim (nvim) as the Default Git Editor](https://lifeofdev.com/set-neovim-as-default-git-editor/)
-- [Deploy Astro.js Website to GitHub Pages using BUN and GitHub Actions](https://lifeofdev.com/deploy-astrojs-website-github-pages-using-bun-github-actions/)
-- [Running Sass in a Vite project](https://lifeofdev.com/running-sass-vite-project/)
 
 
 ## 📈 Github Stats (Past Year)
 
-- Total Commits: 686
-- Total Stars: 100
-- Total PRs: 1874
+- Total Commits: 770
+- Total Stars: 113
+- Total PRs: 1991
 - Total Contributions: 14
-- Total Issues: 179
+- Total Issues: 206
 
 
 <details>
-  <summary>Experience (8 years)</summary>
+  <summary>Experience (9 years)</summary>
 
   #### Sirine.ai B.V
   *Full Stack Engineer*
 
-  <sup>Jul 2025 - Present (6 m) • India</sup>
+  <sup>Jul 2025 - Present (7 m) • India</sup>
 
   ---
   #### Oreala B.V

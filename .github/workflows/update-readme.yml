@@ -10,6 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       GH_ACCESS_TOKEN: ${{ secrets.GH_ACCESS_TOKEN }}
+      SHOW_LATEST_POSTS: false
     steps:
       - name: Checkout repository 🛎
         uses: actions/checkout@v4
