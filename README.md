@@ -13,7 +13,7 @@ I'm a Full-Stack Web Developer from Chennai, 🇮🇳 India. I specialize in cre
 
 - Total Commits: 770
 - Total Stars: 113
-- Total PRs: 1991
+- Total PRs: 1995
 - Total Contributions: 14
 - Total Issues: 206
 
