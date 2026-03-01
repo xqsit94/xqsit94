@@ -11,11 +11,11 @@ I'm a Full-Stack Web Developer from Chennai, 🇮🇳 India. I specialize in cre
 
 ## 📈 Github Stats (Past Year)
 
-- Total Commits: 770
+- Total Commits: 793
 - Total Stars: 113
-- Total PRs: 1995
-- Total Contributions: 14
-- Total Issues: 206
+- Total PRs: 2030
+- Total Contributions: 15
+- Total Issues: 218
 
 
 <details>
@@ -24,7 +24,7 @@ I'm a Full-Stack Web Developer from Chennai, 🇮🇳 India. I specialize in cre
   #### Sirine.ai B.V
   *Full Stack Engineer*
 
-  <sup>Jul 2025 - Present (7 m) • India</sup>
+  <sup>Jul 2025 - Present (8 m) • India</sup>
 
   ---
   #### Oreala B.V
