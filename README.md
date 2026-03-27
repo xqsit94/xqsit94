@@ -4,7 +4,7 @@ I'm a Full-Stack Web Developer from Chennai, 🇮🇳 India. I specialize in cre
 
 ## 🤝 Connect with me
 
-- Personal Website: https://xqsit94.in
+- Personal Website: https://xqsit.dev
 - LinkedIn: https://www.linkedin.com/in/xqsit94
 - Github: https://github.com/xqsit94
 

@@ -15,7 +15,7 @@ type Post struct {
 
 func GetPosts() ([]Post, error) {
 	fp := gofeed.NewParser()
-	feed, err := fp.ParseURL("https://xqsit94.in/rss.xml")
+	feed, err := fp.ParseURL("https://xqsit.dev/rss.xml")
 	if err != nil {
 		return nil, err
 	}
