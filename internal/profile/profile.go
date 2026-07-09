@@ -4,25 +4,56 @@ import (
 	"encoding/json"
 	"fmt"
 	"os"
+	"strings"
 	"time"
 )
 
 type Experience struct {
-	Company   string    `json:"company"`
-	Role      string    `json:"role"`
-	StartDate time.Time `json:"-"`
-	EndDate   time.Time `json:"-"`
-	Location  string    `json:"location"`
-	IsCurrent bool      `json:"isCurrent"`
-	StartDateStr string `json:"startDate"`
-	EndDateStr   string `json:"endDate,omitempty"`
+	Company      string    `json:"company"`
+	Role         string    `json:"role"`
+	StartDate    time.Time `json:"-"`
+	EndDate      time.Time `json:"-"`
+	Location     string    `json:"location"`
+	IsCurrent    bool      `json:"isCurrent"`
+	StartDateStr string    `json:"startDate"`
+	EndDateStr   string    `json:"endDate,omitempty"`
 }
 
 type Education struct {
 	Institution string `json:"institution"`
 	Degree      string `json:"degree"`
+	ShortDegree string `json:"shortDegree,omitempty"`
 	StartYear   int    `json:"startYear"`
 	EndYear     int    `json:"endYear"`
+}
+
+type Link struct {
+	Label string `json:"label"`
+	URL   string `json:"url"`
+}
+
+type Links struct {
+	Website  Link `json:"website"`
+	LinkedIn Link `json:"linkedin"`
+	GitHub   Link `json:"github"`
+}
+
+type Stack struct {
+	Languages  string `json:"languages"`
+	Frameworks string `json:"frameworks"`
+	AI         string `json:"ai"`
+}
+
+// Profile is the identity/presentation data driving the card and README.
+type Profile struct {
+	Name        string   `json:"name"`
+	DisplayName string   `json:"displayName"`
+	Host        string   `json:"host"`
+	Title       string   `json:"title"`
+	Email       string   `json:"email"`
+	Bio         []string `json:"bio"`
+	Stack       Stack    `json:"stack"`
+	Links       Links    `json:"links"`
 }
 
 type experienceData struct {
@@ -75,7 +106,6 @@ func loadExperience() ([]Experience, error) {
 		return nil, fmt.Errorf("error unmarshaling experience data: %w", err)
 	}
 
-	// Convert date strings to time.Time
 	for i := range expData.Experience {
 		expData.Experience[i].StartDate = parseDate(expData.Experience[i].StartDateStr)
 		if expData.Experience[i].EndDateStr != "" {
@@ -98,6 +128,41 @@ func loadEducation() ([]Education, error) {
 	}
 
 	return eduData.Education, nil
+}
+
+func loadProfile() (Profile, error) {
+	data, err := os.ReadFile("data/profile.json")
+	if err != nil {
+		return Profile{}, fmt.Errorf("error reading profile data: %w", err)
+	}
+
+	var p Profile
+	if err := json.Unmarshal(data, &p); err != nil {
+		return Profile{}, fmt.Errorf("error unmarshaling profile data: %w", err)
+	}
+
+	return p, nil
+}
+
+func GetProfile() Profile {
+	p, err := loadProfile()
+	if err != nil {
+		return Profile{}
+	}
+	return p
+}
+
+// GetPortrait reads the ASCII portrait, dropping trailing blank lines.
+func GetPortrait() []string {
+	data, err := os.ReadFile("data/portrait.txt")
+	if err != nil {
+		return nil
+	}
+	lines := strings.Split(string(data), "\n")
+	for len(lines) > 0 && strings.TrimSpace(lines[len(lines)-1]) == "" {
+		lines = lines[:len(lines)-1]
+	}
+	return lines
 }
 
 func GetExperience() []Experience {

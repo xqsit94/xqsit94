@@ -7,6 +7,7 @@ import (
 	"strings"
 
 	"github.com/joho/godotenv"
+	"github.com/xqsit94/xqsit94/internal/card"
 	"github.com/xqsit94/xqsit94/internal/github"
 	"github.com/xqsit94/xqsit94/internal/posts"
 	"github.com/xqsit94/xqsit94/internal/profile"
@@ -17,6 +18,7 @@ type TemplateData struct {
 	ShowPosts bool
 	Github    *github.Stats
 	Profile   struct {
+		profile.Profile
 		Experience      []profile.Experience
 		Education       []profile.Education
 		TotalExperience string
@@ -44,6 +46,24 @@ func main() {
 		log.Fatalf("Error getting GitHub stats: %v", err)
 	}
 
+	prof := profile.GetProfile()
+	experience := profile.GetExperience()
+	education := profile.GetEducation()
+	totalExperience := profile.CalculateTotalExperience()
+
+	cardData := card.Assemble(prof, experience, education, totalExperience,
+		profile.GetPortrait(),
+		card.Stats{
+			Commits:      githubStats.Commits,
+			PullRequests: githubStats.PullRequests,
+			Stars:        githubStats.Stars,
+			Issues:       githubStats.Issues,
+			Contributed:  githubStats.Contributed,
+		})
+	if err := card.WriteAll("assets", cardData); err != nil {
+		log.Fatalf("Error writing profile card: %v", err)
+	}
+
 	tmpl, err := template.ParseFiles("templates/README.tmpl")
 	if err != nil {
 		log.Fatalf("Error parsing template: %v", err)
@@ -65,13 +85,15 @@ func main() {
 		ShowPosts: showPosts,
 		Github:    githubStats,
 		Profile: struct {
+			profile.Profile
 			Experience      []profile.Experience
 			Education       []profile.Education
 			TotalExperience string
 		}{
-			Experience:      profile.GetExperience(),
-			Education:       profile.GetEducation(),
-			TotalExperience: profile.CalculateTotalExperience(),
+			Profile:         prof,
+			Experience:      experience,
+			Education:       education,
+			TotalExperience: totalExperience,
 		},
 	}
 	if err := tmpl.Execute(output, data); err != nil {

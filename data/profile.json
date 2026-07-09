@@ -1,0 +1,21 @@
+{
+  "name": "manikandan",
+  "displayName": "Manikandan",
+  "host": "xqsit.dev",
+  "title": "Full-Stack Web Developer",
+  "email": "manikandan@xqsit.dev",
+  "bio": [
+    "Full-Stack Web Developer crafting clean,",
+    "efficient, scalable systems — always learning."
+  ],
+  "stack": {
+    "languages": "Go · Python · PHP · TS",
+    "frameworks": "Laravel · Vue.js · Adonis",
+    "ai": "LLM · Agents · MCP · RAG"
+  },
+  "links": {
+    "website": { "label": "xqsit.dev", "url": "https://xqsit.dev" },
+    "linkedin": { "label": "in/xqsit94", "url": "https://www.linkedin.com/in/xqsit94" },
+    "github": { "label": "xqsit94", "url": "https://github.com/xqsit94" }
+  }
+}
