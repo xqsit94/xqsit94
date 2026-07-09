@@ -7,6 +7,7 @@ import (
 	"strings"
 
 	"github.com/joho/godotenv"
+	"github.com/xqsit94/xqsit94/internal/card"
 	"github.com/xqsit94/xqsit94/internal/github"
 	"github.com/xqsit94/xqsit94/internal/posts"
 	"github.com/xqsit94/xqsit94/internal/profile"
@@ -42,6 +43,20 @@ func main() {
 	githubStats, err := github.GetGithubStats()
 	if err != nil {
 		log.Fatalf("Error getting GitHub stats: %v", err)
+	}
+
+	// Render the neofetch profile card (light + dark) with live stats.
+	cardData := card.Assemble("manikandan", "xqsit.dev",
+		profile.GetExperience(), profile.CalculateTotalExperience(),
+		card.Stats{
+			Commits:      githubStats.Commits,
+			PullRequests: githubStats.PullRequests,
+			Stars:        githubStats.Stars,
+			Issues:       githubStats.Issues,
+			Contributed:  githubStats.Contributed,
+		})
+	if err := card.WriteAll("assets", cardData); err != nil {
+		log.Fatalf("Error writing profile card: %v", err)
 	}
 
 	tmpl, err := template.ParseFiles("templates/README.tmpl")

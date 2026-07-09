@@ -1,22 +1,16 @@
-## 👋 Hi, I'm Manikandan
-
-I'm a Full-Stack Web Developer from Chennai, 🇮🇳 India. I specialize in creating clean, efficient, and scalable code. Passionate about learning new technologies and delivering innovative solutions.
+<p align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="./assets/dark_mode.svg" />
+    <source media="(prefers-color-scheme: light)" srcset="./assets/light_mode.svg" />
+    <img alt="Manikandan — Full-Stack Web Developer" src="./assets/light_mode.svg" />
+  </picture>
+</p>
 
 ## 🤝 Connect with me
 
 - Personal Website: https://xqsit.dev
 - LinkedIn: https://www.linkedin.com/in/xqsit94
-- Github: https://github.com/xqsit94
-
-
-## 📈 Github Stats (Past Year)
-
-- Total Commits: 1429
-- Total Stars: 133
-- Total PRs: 2555
-- Total Contributions: 24
-- Total Issues: 608
-
+- Email: <manikandan@xqsit.dev>
 
 <details>
   <summary>Experience (9 years)</summary>
