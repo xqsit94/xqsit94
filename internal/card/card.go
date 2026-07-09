@@ -1,10 +1,7 @@
 // Package card renders the neofetch-style profile SVG (light + dark themes).
-// The ASCII portrait is embedded; dynamic content (GitHub stats, current role,
-// uptime, education) is passed in so the weekly generator keeps it fresh.
 package card
 
 import (
-	_ "embed"
 	"fmt"
 	"html"
 	"math"
@@ -14,33 +11,20 @@ import (
 	"github.com/xqsit94/xqsit94/internal/profile"
 )
 
-//go:embed portrait.txt
-var portraitRaw string
-
-var bioLines = []string{
-	"Full-Stack Web Developer crafting clean,",
-	"efficient, scalable systems — always learning.",
-}
-
-const (
-	langs       = "Go · Python · PHP · TS"
-	frameworks  = "Laravel · Vue.js · Adonis"
-	aiStack     = "LLM · Agents · MCP · RAG"
-	website     = "xqsit.dev"
-	linkedin    = "in/xqsit94"
-	githubUser  = "xqsit94"
-	institution = "Madha Engineering College"
-	degree      = "B.E. Computer Science"
-)
-
-// Data carries the dynamic values the card renders.
+// Data carries every value the card renders.
 type Data struct {
-	Name, Host              string
-	Company, Role, Location string
-	Uptime                  string
-	Commits, PullRequests   int
-	Stars, Issues           int
-	Contributed             int
+	Name, Host                string
+	Title                     string
+	Bio                       []string
+	Portrait                  []string
+	Company, Role, Location   string
+	Uptime                    string
+	Institution, Degree       string
+	Langs, Frameworks, AI     string
+	Website, LinkedIn, GitHub string
+	Commits, PullRequests     int
+	Stars, Issues             int
+	Contributed               int
 }
 
 // Stats is the subset of GitHub stats the card shows.
@@ -94,15 +78,15 @@ type row struct {
 func (d Data) rows() []row {
 	return []row{
 		{kind: "top", key: "Host", val: d.Company},
-		{kind: "top", key: "OS", val: "Full-Stack Web Developer"},
+		{kind: "top", key: "OS", val: d.Title},
 		{kind: "mid", key: "Role", val: d.Role},
 		{kind: "mid", key: "Uptime", val: d.Uptime},
 		{kind: "end", key: "Location", val: d.Location},
 		{kind: "blank"},
 		{kind: "top", key: "DEV", val: "Stack"},
-		{kind: "mid", key: "Languages", val: langs},
-		{kind: "mid", key: "Frameworks", val: frameworks},
-		{kind: "end", key: "AI", val: aiStack},
+		{kind: "mid", key: "Languages", val: d.Langs},
+		{kind: "mid", key: "Frameworks", val: d.Frameworks},
+		{kind: "end", key: "AI", val: d.AI},
 		{kind: "blank"},
 		{kind: "top", key: "STATS", val: "Past Year"},
 		{kind: "stats", segs: []seg{
@@ -113,13 +97,13 @@ func (d Data) rows() []row {
 			{fmtNum(d.Stars), "vl"}, {" stars", "sk"},
 		}},
 		{kind: "blank"},
-		{kind: "top", key: "EDU", val: institution},
-		{kind: "end", key: "Degree", val: degree},
+		{kind: "top", key: "EDU", val: d.Institution},
+		{kind: "end", key: "Degree", val: d.Degree},
 		{kind: "blank"},
 		{kind: "top", key: "WWW", val: "Links"},
-		{kind: "mid", key: "Website", val: website},
-		{kind: "mid", key: "LinkedIn", val: linkedin},
-		{kind: "end", key: "GitHub", val: githubUser},
+		{kind: "mid", key: "Website", val: d.Website},
+		{kind: "mid", key: "LinkedIn", val: d.LinkedIn},
+		{kind: "end", key: "GitHub", val: d.GitHub},
 	}
 }
 
@@ -160,18 +144,10 @@ func rowChars(r row) int {
 	return pre + len(r.key) + 3 + len(r.val) // key + " → " + val
 }
 
-func portraitLines() []string {
-	ls := strings.Split(portraitRaw, "\n")
-	for len(ls) > 0 && strings.TrimSpace(ls[len(ls)-1]) == "" {
-		ls = ls[:len(ls)-1]
-	}
-	return ls
-}
-
 // Render returns the SVG document for the given theme ("dark" / "light").
 func Render(themeName string, d Data) string {
 	t := themes[themeName]
-	pl := portraitLines()
+	pl := d.Portrait
 
 	nCols := 0
 	for _, l := range pl {
@@ -187,7 +163,7 @@ func Render(themeName string, d Data) string {
 	if h := float64(len(d.Name)+1+len(d.Host)) * iCW; h > maxPx {
 		maxPx = h
 	}
-	for _, b := range bioLines {
+	for _, b := range d.Bio {
 		if w := float64(len([]rune(b))) * bCW; w > maxPx {
 			maxPx = w
 		}
@@ -210,7 +186,7 @@ func Render(themeName string, d Data) string {
 	y := bodyTop + iFS // header baseline
 	y += iLH           // dash
 	y += bLH * 0.4     // gap before bio
-	for range bioLines {
+	for range d.Bio {
 		y += bLH
 	}
 	y += iLH * 0.5 // gap after bio
@@ -277,7 +253,7 @@ func Render(themeName string, d Data) string {
 	yy += iLH
 	p(fmt.Sprintf(`<text x="%.0f" y="%.1f" fill="%s">%s</text>`, infoX, yy, t.dash, strings.Repeat("─", 28)))
 	yy += bLH * 0.4
-	for _, b := range bioLines {
+	for _, b := range d.Bio {
 		yy += bLH
 		p(fmt.Sprintf(`<text x="%.0f" y="%.1f" font-size="%g" fill="%s">%s</text>`, infoX, yy, bFS, t.value, esc(b)))
 	}
@@ -323,12 +299,16 @@ func Render(themeName string, d Data) string {
 	return o.String()
 }
 
-// Assemble builds card Data from the real profile (current role/company,
-// uptime) plus the given GitHub stats. Education/links/bio are curated
-// constants in this package.
-func Assemble(name, host string, exps []profile.Experience, totalExp string, s Stats) Data {
+// Assemble builds card Data from the profile, deriving the current role and
+// uptime from experience and taking the top entry from education.
+func Assemble(p profile.Profile, exps []profile.Experience, edu []profile.Education, totalExp string, portrait []string, s Stats) Data {
 	d := Data{
-		Name: name, Host: host,
+		Name: p.Name, Host: p.Host,
+		Title:    p.Title,
+		Bio:      p.Bio,
+		Portrait: portrait,
+		Langs:    p.Stack.Languages, Frameworks: p.Stack.Frameworks, AI: p.Stack.AI,
+		Website: p.Links.Website.Label, LinkedIn: p.Links.LinkedIn.Label, GitHub: p.Links.GitHub.Label,
 		Commits: s.Commits, PullRequests: s.PullRequests,
 		Stars: s.Stars, Issues: s.Issues, Contributed: s.Contributed,
 	}
@@ -352,6 +332,13 @@ func Assemble(name, host string, exps []profile.Experience, totalExp string, s S
 			d.Uptime = fmt.Sprintf("~%s · since %d", totalExp, earliest)
 		} else {
 			d.Uptime = "~" + totalExp
+		}
+	}
+	if len(edu) > 0 {
+		d.Institution = edu[0].Institution
+		d.Degree = edu[0].Degree
+		if edu[0].ShortDegree != "" {
+			d.Degree = edu[0].ShortDegree
 		}
 	}
 	return d

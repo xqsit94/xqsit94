@@ -14,8 +14,9 @@ func main() {
 	// representative stats (the weekly `cmd/gen` run overwrites with live values)
 	stats := card.Stats{Commits: 1429, PullRequests: 2555, Stars: 133, Issues: 608, Contributed: 24}
 
-	d := card.Assemble("manikandan", "xqsit.dev",
-		profile.GetExperience(), profile.CalculateTotalExperience(), stats)
+	d := card.Assemble(profile.GetProfile(), profile.GetExperience(),
+		profile.GetEducation(), profile.CalculateTotalExperience(),
+		profile.GetPortrait(), stats)
 
 	if err := card.WriteAll("assets", d); err != nil {
 		log.Fatalf("write cards: %v", err)

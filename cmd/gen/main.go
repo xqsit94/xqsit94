@@ -18,6 +18,7 @@ type TemplateData struct {
 	ShowPosts bool
 	Github    *github.Stats
 	Profile   struct {
+		profile.Profile
 		Experience      []profile.Experience
 		Education       []profile.Education
 		TotalExperience string
@@ -45,9 +46,13 @@ func main() {
 		log.Fatalf("Error getting GitHub stats: %v", err)
 	}
 
-	// Render the neofetch profile card (light + dark) with live stats.
-	cardData := card.Assemble("manikandan", "xqsit.dev",
-		profile.GetExperience(), profile.CalculateTotalExperience(),
+	prof := profile.GetProfile()
+	experience := profile.GetExperience()
+	education := profile.GetEducation()
+	totalExperience := profile.CalculateTotalExperience()
+
+	cardData := card.Assemble(prof, experience, education, totalExperience,
+		profile.GetPortrait(),
 		card.Stats{
 			Commits:      githubStats.Commits,
 			PullRequests: githubStats.PullRequests,
@@ -80,13 +85,15 @@ func main() {
 		ShowPosts: showPosts,
 		Github:    githubStats,
 		Profile: struct {
+			profile.Profile
 			Experience      []profile.Experience
 			Education       []profile.Education
 			TotalExperience string
 		}{
-			Experience:      profile.GetExperience(),
-			Education:       profile.GetEducation(),
-			TotalExperience: profile.CalculateTotalExperience(),
+			Profile:         prof,
+			Experience:      experience,
+			Education:       education,
+			TotalExperience: totalExperience,
 		},
 	}
 	if err := tmpl.Execute(output, data); err != nil {
