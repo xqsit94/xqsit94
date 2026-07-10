@@ -21,5 +21,8 @@ func main() {
 	if err := card.WriteAll("assets", d); err != nil {
 		log.Fatalf("write cards: %v", err)
 	}
-	log.Println("wrote assets/dark_mode.svg, assets/light_mode.svg")
+	if err := card.WriteButtons("assets", d.Website); err != nil {
+		log.Fatalf("write buttons: %v", err)
+	}
+	log.Println("wrote assets/{dark,light}_mode.svg and connect buttons")
 }

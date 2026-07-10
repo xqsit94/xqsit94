@@ -1,4 +1,4 @@
-// Package card renders the neofetch-style profile SVG (light + dark themes).
+// Package card renders the profile SVG card and connect buttons (light + dark).
 package card
 
 import (
@@ -48,8 +48,8 @@ type theme struct {
 	win, bar, border, title    string
 	name, host, topkey, subkey string
 	arrow, branch, value, dash string
+	prompt                     string
 	pg                         [3]string
-	palette                    [8]string
 }
 
 var themes = map[string]theme{
@@ -57,15 +57,15 @@ var themes = map[string]theme{
 		win: "#0d1117", bar: "#161b22", border: "#30363d", title: "#7d8590",
 		name: "#f47067", host: "#6cb6ff", topkey: "#d2a8ff", subkey: "#e3b341",
 		arrow: "#56d4dd", branch: "#39929e", value: "#adbac7", dash: "#444c56",
-		pg:      [3]string{"#f47067", "#d2a8ff", "#6cb6ff"},
-		palette: [8]string{"#f47067", "#57ab5a", "#e3b341", "#6cb6ff", "#d2a8ff", "#56d4dd", "#adbac7", "#444c56"},
+		prompt: "#57ab5a",
+		pg:     [3]string{"#f47067", "#d2a8ff", "#6cb6ff"},
 	},
 	"light": {
 		win: "#ffffff", bar: "#f6f8fa", border: "#d0d7de", title: "#57606a",
 		name: "#cf222e", host: "#0969da", topkey: "#8250df", subkey: "#9a6700",
 		arrow: "#1b7c83", branch: "#1b7c83", value: "#24292f", dash: "#d8dee4",
-		pg:      [3]string{"#cf222e", "#8250df", "#0969da"},
-		palette: [8]string{"#cf222e", "#1a7f37", "#9a6700", "#0969da", "#8250df", "#1b7c83", "#24292f", "#afb8c1"},
+		prompt: "#1a7f37",
+		pg:     [3]string{"#cf222e", "#8250df", "#0969da"},
 	},
 }
 
@@ -195,8 +195,7 @@ func Render(themeName string, d Data) string {
 		_ = r
 	}
 	panelBottom := y
-	paletteY := panelBottom + 14
-	panelH := paletteY + 17 - bodyTop
+	panelH := panelBottom - bodyTop
 
 	portraitH := float64(len(pl)) * pLH
 	pTop := bodyTop
@@ -205,12 +204,12 @@ func Render(themeName string, d Data) string {
 	}
 	portraitBottom := pTop + portraitH
 
-	H := math.Max(portraitBottom, paletteY+17) + 22
+	H := math.Max(portraitBottom, panelBottom) + 24
 
 	var o strings.Builder
 	p := func(s string) { o.WriteString(s); o.WriteByte('\n') }
 
-	p(fmt.Sprintf(`<svg xmlns="http://www.w3.org/2000/svg" width="%d" height="%d" viewBox="0 0 %d %d" font-family="%s" role="img" aria-label="%s@%s — neofetch profile card">`,
+	p(fmt.Sprintf(`<svg xmlns="http://www.w3.org/2000/svg" width="%d" height="%d" viewBox="0 0 %d %d" font-family="%s" role="img" aria-label="%s@%s — git fetch profile card">`,
 		int(W), int(H), int(W), int(H), font, esc(d.Name), esc(d.Host)))
 	p(`<style>` +
 		`@keyframes blink{50%{opacity:0}}.cur{animation:blink 1.1s step-end infinite}` +
@@ -225,12 +224,12 @@ func Render(themeName string, d Data) string {
 	p(fmt.Sprintf(`<rect x="0.5" y="0.5" width="%.0f" height="%.0f" rx="12" fill="%s" stroke="%s"/>`,
 		W-1, H-1, t.win, t.border))
 
-	// starship-style prompt line: ~ ❯ neofetch
+	// starship-style prompt line: ~ ❯ git fetch
 	p(fmt.Sprintf(`<text x="%.0f" y="%.1f" font-size="%g">`+
 		`<tspan fill="%s" font-weight="700">~ </tspan>`+
 		`<tspan fill="%s" font-weight="700">❯ </tspan>`+
-		`<tspan fill="%s">neofetch</tspan></text>`,
-		padX, promptBase, iFS, t.arrow, t.palette[1], t.value))
+		`<tspan fill="%s">git</tspan><tspan fill="%s"> fetch</tspan></text>`,
+		padX, promptBase, iFS, t.arrow, t.prompt, t.subkey, t.value))
 
 	p(fmt.Sprintf(`<g class="fade" fill="url(#pg)" font-size="%g">`, pFS))
 	py := pTop + pFS
@@ -288,12 +287,6 @@ func Render(themeName string, d Data) string {
 		}
 	}
 	p(`</g>`)
-
-	const sq, gap = 17.0, 7.0
-	for i, c := range t.palette {
-		p(fmt.Sprintf(`<rect x="%.0f" y="%.1f" width="%.0f" height="%.0f" rx="3.5" fill="%s"/>`,
-			infoX+float64(i)*(sq+gap), paletteY, sq, sq, c))
-	}
 
 	p(`</svg>`)
 	return o.String()

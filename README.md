@@ -6,11 +6,28 @@
   </picture>
 </p>
 
-## 🤝 Connect with me
-
-- Personal Website: https://xqsit.dev
-- LinkedIn: https://www.linkedin.com/in/xqsit94
-- Email: <manikandan@xqsit.dev>
+<p align="center">
+  <a href="https://xqsit.dev">
+    <picture>
+      <source media="(prefers-color-scheme: dark)" srcset="./assets/btn_website_dark.svg" />
+      <img alt="xqsit.dev" src="./assets/btn_website_light.svg" height="32" />
+    </picture>
+  </a>
+  &nbsp;
+  <a href="https://www.linkedin.com/in/xqsit94">
+    <picture>
+      <source media="(prefers-color-scheme: dark)" srcset="./assets/btn_linkedin_dark.svg" />
+      <img alt="LinkedIn" src="./assets/btn_linkedin_light.svg" height="32" />
+    </picture>
+  </a>
+  &nbsp;
+  <a href="mailto:manikandan@xqsit.dev">
+    <picture>
+      <source media="(prefers-color-scheme: dark)" srcset="./assets/btn_email_dark.svg" />
+      <img alt="Email" src="./assets/btn_email_light.svg" height="32" />
+    </picture>
+  </a>
+</p>
 
 <details>
   <summary>Experience (9 years)</summary>
