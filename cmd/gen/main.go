@@ -63,6 +63,9 @@ func main() {
 	if err := card.WriteAll("assets", cardData); err != nil {
 		log.Fatalf("Error writing profile card: %v", err)
 	}
+	if err := card.WriteButtons("assets", cardData.Website); err != nil {
+		log.Fatalf("Error writing connect buttons: %v", err)
+	}
 
 	tmpl, err := template.ParseFiles("templates/README.tmpl")
 	if err != nil {

@@ -6,11 +6,28 @@
   </picture>
 </p>
 
-## 🤝 Connect with me
-
-- Personal Website: {{.Profile.Links.Website.URL}}
-- LinkedIn: {{.Profile.Links.LinkedIn.URL}}
-- Email: <{{.Profile.Email}}>
+<p align="center">
+  <a href="{{.Profile.Links.Website.URL}}">
+    <picture>
+      <source media="(prefers-color-scheme: dark)" srcset="./assets/btn_website_dark.svg" />
+      <img alt="{{.Profile.Links.Website.Label}}" src="./assets/btn_website_light.svg" height="32" />
+    </picture>
+  </a>
+  &nbsp;
+  <a href="{{.Profile.Links.LinkedIn.URL}}">
+    <picture>
+      <source media="(prefers-color-scheme: dark)" srcset="./assets/btn_linkedin_dark.svg" />
+      <img alt="LinkedIn" src="./assets/btn_linkedin_light.svg" height="32" />
+    </picture>
+  </a>
+  &nbsp;
+  <a href="mailto:{{.Profile.Email}}">
+    <picture>
+      <source media="(prefers-color-scheme: dark)" srcset="./assets/btn_email_dark.svg" />
+      <img alt="Email" src="./assets/btn_email_light.svg" height="32" />
+    </picture>
+  </a>
+</p>
 {{if .ShowPosts}}
 ## 📝 Latest Posts
 {{range .Posts}}- [{{.Title}}]({{.Link}})
