@@ -58,7 +58,7 @@ func labelWidth(label string) float64 {
 	return units / 1000 * btnFS
 }
 
-type Button struct{ Label, Icon, File string }
+type Button struct{ Label, Icon string }
 
 func siteMark(x, y, size float64, color string) string {
 	s := size / 1000
@@ -123,9 +123,9 @@ func renderButton(themeName, label, icon string, width float64) string {
 // dir/btn_<file>_<theme>.svg.
 func WriteButtons(dir, websiteLabel string) error {
 	btns := []Button{
-		{Label: websiteLabel, Icon: "website", File: "website"},
-		{Label: "LinkedIn", Icon: "linkedin", File: "linkedin"},
-		{Label: "Email", Icon: "email", File: "email"},
+		{Label: websiteLabel, Icon: "website"},
+		{Label: "LinkedIn", Icon: "linkedin"},
+		{Label: "Email", Icon: "email"},
 	}
 	var width float64
 	for _, b := range btns {
@@ -135,7 +135,7 @@ func WriteButtons(dir, websiteLabel string) error {
 	}
 	for _, b := range btns {
 		for _, themeName := range []string{"dark", "light"} {
-			path := fmt.Sprintf("%s/btn_%s_%s.svg", dir, b.File, themeName)
+			path := fmt.Sprintf("%s/btn_%s_%s.svg", dir, b.Icon, themeName)
 			if err := os.WriteFile(path, []byte(renderButton(themeName, b.Label, b.Icon, width)+"\n"), 0o644); err != nil {
 				return fmt.Errorf("write %s: %w", path, err)
 			}
