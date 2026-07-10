@@ -26,24 +26,56 @@ const (
 	btnRX   = 6.0
 )
 
-// glyphAdv is per-glyph advance width in 1000-em units (Helvetica AFM, a close
-// proxy for the system sans stack) — used to size and center each button by its
-// label's real proportional width. Unmapped runes use glyphAdvDefault.
-const glyphAdvDefault = 556.0
+// glyphAdv and glyphRSB are per-glyph metrics for SF Pro Text Medium — the font
+// that -apple-system resolves to at the button's 14px font-size — measured in
+// 1000-em units via CoreText. (The previous Helvetica AFM table underestimated
+// SF Pro's width by ~6px on "xqsit.dev", leaving the buttons with noticeably
+// more left than right padding.) glyphAdv is the advance width (pen travel);
+// glyphRSB is the trailing right side bearing (advance minus ink right edge),
+// used to center the visible ink rather than the advance box. Unmapped runes use
+// the *Default fallbacks.
+const (
+	glyphAdvDefault = 600.0
+	glyphRSBDefault = 40.0
+)
 
 var glyphAdv = map[rune]float64{
-	' ': 278, '!': 278, '"': 355, '#': 556, '$': 556, '%': 889, '&': 667, '\'': 191,
-	'(': 333, ')': 333, '*': 389, '+': 584, ',': 278, '-': 333, '.': 278, '/': 278,
-	'0': 556, '1': 556, '2': 556, '3': 556, '4': 556, '5': 556, '6': 556, '7': 556,
-	'8': 556, '9': 556, ':': 278, ';': 278, '<': 584, '=': 584, '>': 584, '?': 556, '@': 1015,
-	'A': 667, 'B': 667, 'C': 722, 'D': 722, 'E': 667, 'F': 611, 'G': 778, 'H': 722,
-	'I': 278, 'J': 500, 'K': 667, 'L': 556, 'M': 833, 'N': 722, 'O': 778, 'P': 667,
-	'Q': 778, 'R': 722, 'S': 667, 'T': 611, 'U': 722, 'V': 667, 'W': 944, 'X': 667,
-	'Y': 667, 'Z': 611, '[': 278, '\\': 278, ']': 278, '^': 469, '_': 556, '`': 333,
-	'a': 556, 'b': 556, 'c': 500, 'd': 556, 'e': 556, 'f': 278, 'g': 556, 'h': 556,
-	'i': 222, 'j': 222, 'k': 500, 'l': 222, 'm': 833, 'n': 556, 'o': 556, 'p': 556,
-	'q': 556, 'r': 333, 's': 500, 't': 278, 'u': 556, 'v': 500, 'w': 722, 'x': 500,
-	'y': 500, 'z': 500, '{': 334, '|': 260, '}': 334, '~': 584,
+	' ': 262, '!': 317, '"': 500, '#': 634, '$': 634, '%': 955, '&': 713, '\'': 305,
+	'(': 388, ')': 388, '*': 466, '+': 634, ',': 305, '-': 466, '.': 305, '/': 305,
+	'0': 639, '1': 471, '2': 607, '3': 632, '4': 649, '5': 624, '6': 643, '7': 571,
+	'8': 648, '9': 643, ':': 305, ';': 305, '<': 634, '=': 634, '>': 634, '?': 518,
+	'@': 911, 'A': 685, 'B': 660, 'C': 714, 'D': 723, 'E': 595, 'F': 571, 'G': 741,
+	'H': 746, 'I': 275, 'J': 550, 'K': 666, 'L': 567, 'M': 875, 'N': 741, 'O': 766,
+	'P': 639, 'Q': 766, 'R': 658, 'S': 640, 'T': 633, 'U': 735, 'V': 680, 'W': 972,
+	'X': 687, 'Y': 664, 'Z': 656, '[': 388, '\\': 305, ']': 388, '^': 634, '_': 589,
+	'`': 489, 'a': 555, 'b': 617, 'c': 559, 'd': 617, 'e': 571, 'f': 368, 'g': 612,
+	'h': 594, 'i': 251, 'j': 251, 'k': 554, 'l': 258, 'm': 882, 'n': 589, 'o': 591,
+	'p': 613, 'q': 613, 'r': 390, 's': 528, 't': 371, 'u': 589, 'v': 546, 'w': 790,
+	'x': 534, 'y': 552, 'z': 538, '{': 388, '|': 263, '}': 388, '~': 634,
+}
+
+var glyphRSB = map[rune]float64{
+	' ': 262, '!': 78, '"': 94, '#': 4, '$': 60, '%': 54, '&': 2, '\'': 93,
+	'(': 39, ')': 104, '*': 53, '+': 47, ',': 91, '-': 64, '.': 75, '/': -11,
+	'0': 54, '1': 112, '2': 56, '3': 52, '4': 46, '5': 50, '6': 51, '7': 44,
+	'8': 51, '9': 51, ':': 75, ';': 75, '<': 59, '=': 53, '>': 59, '?': 41,
+	'@': 44, 'A': 23, 'B': 41, 'C': 44, 'D': 49, 'E': 58, 'F': 42, 'G': 51,
+	'H': 77, 'I': 77, 'J': 77, 'K': 16, 'L': 39, 'M': 77, 'N': 77, 'O': 48,
+	'P': 41, 'Q': 48, 'R': 35, 'S': 44, 'T': 35, 'U': 76, 'V': 23, 'W': 32,
+	'X': 33, 'Y': 23, 'Z': 58, '[': 27, '\\': -11, ']': 117, '^': 45, '_': -11,
+	'`': 140, 'a': 62, 'b': 39, 'c': 32, 'd': 70, 'e': 39, 'f': 27, 'g': 65,
+	'h': 60, 'i': 53, 'j': 53, 'k': 9, 'l': 70, 'm': 60, 'n': 60, 'o': 39,
+	'p': 40, 'q': 64, 'r': 14, 's': 39, 't': 37, 'u': 65, 'v': 19, 'w': 21,
+	'x': 23, 'y': 20, 'z': 53, '{': 27, '|': 77, '}': 27, '~': 53,
+}
+
+// iconLSB is each icon's left ink bearing in px within its 16px box: the
+// whitespace before the glyph's first drawn pixel. Used to center the icon ink
+// rather than its layout box. Derived from the icon path geometry.
+var iconLSB = map[string]float64{
+	"website":  0.495,
+	"linkedin": 0.667,
+	"email":    0.667,
 }
 
 func labelWidth(label string) float64 {
@@ -56,6 +88,21 @@ func labelWidth(label string) float64 {
 		}
 	}
 	return units / 1000 * btnFS
+}
+
+// labelLastRSB returns the right side bearing (px at btnFS) of the label's
+// final glyph — the trailing whitespace between the text's advance box and its
+// visible ink.
+func labelLastRSB(label string) float64 {
+	r := []rune(label)
+	if len(r) == 0 {
+		return 0
+	}
+	last := r[len(r)-1]
+	if b, ok := glyphRSB[last]; ok {
+		return b / 1000 * btnFS
+	}
+	return glyphRSBDefault / 1000 * btnFS
 }
 
 type Button struct{ Label, Icon string }
@@ -89,9 +136,12 @@ func btnNaturalWidth(label string) float64 {
 
 func renderButton(themeName, label, icon string, width float64) string {
 	t := btnThemes[themeName]
-	textW := labelWidth(label)
-	block := btnIC + btnGap + textW
-	iconX := (width - block) / 2
+	// Center the visible ink (icon's left edge ↔ text's right edge) rather than
+	// the advance box, so horizontal padding stays symmetric for any label/icon.
+	adv := labelWidth(label)
+	lastRSB := labelLastRSB(label)
+	iL := iconLSB[icon]
+	iconX := (width - btnIC - btnGap - adv + lastRSB - iL) / 2
 	iconY := (btnH - btnIC) / 2
 	textX := iconX + btnIC + btnGap
 	textY := btnH/2 + btnFS*0.34
