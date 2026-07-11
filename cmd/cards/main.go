@@ -17,6 +17,7 @@ func main() {
 	d := card.Assemble(profile.GetProfile(), profile.GetExperience(),
 		profile.GetEducation(), profile.CalculateTotalExperience(),
 		profile.GetPortrait(), stats)
+	d.Color = card.PortraitColorFromEnv()
 
 	if err := card.WriteAll("assets", d); err != nil {
 		log.Fatalf("write cards: %v", err)
