@@ -60,6 +60,7 @@ func main() {
 			Issues:       githubStats.Issues,
 			Contributed:  githubStats.Contributed,
 		})
+	cardData.Color = card.PortraitColorFromEnv()
 	if err := card.WriteAll("assets", cardData); err != nil {
 		log.Fatalf("Error writing profile card: %v", err)
 	}

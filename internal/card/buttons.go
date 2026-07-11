@@ -23,7 +23,7 @@ const (
 	btnIC   = 16.0
 	btnGap  = 8.0
 	btnPadR = 12.0
-	btnRX   = 6.0
+	btnRX   = ghRadius
 )
 
 // glyphAdv and glyphRSB are per-glyph metrics for SF Pro Text Medium — the font

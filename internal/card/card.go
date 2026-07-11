@@ -25,12 +25,40 @@ type Data struct {
 	Commits, PullRequests     int
 	Stars, Issues             int
 	Contributed               int
+	Color                     PortraitColor
 }
 
 // Stats is the subset of GitHub stats the card shows.
 type Stats struct {
 	Commits, PullRequests, Stars, Issues, Contributed int
 }
+
+// PortraitColor selects how the ASCII portrait is tinted, chosen via the
+// PORTRAIT_COLOR env var. ColorCycle animates between the yellow and gray
+// gradients and honors prefers-reduced-motion (holding on yellow).
+type PortraitColor string
+
+const (
+	ColorYellow PortraitColor = "yellow"
+	ColorGray   PortraitColor = "gray"
+	ColorCycle  PortraitColor = "cycle"
+)
+
+// ParsePortraitColor maps a PORTRAIT_COLOR value to a mode, defaulting to
+// ColorCycle for empty or unrecognized input.
+func ParsePortraitColor(s string) PortraitColor {
+	switch strings.ToLower(strings.TrimSpace(s)) {
+	case "yellow":
+		return ColorYellow
+	case "gray", "grey":
+		return ColorGray
+	default:
+		return ColorCycle
+	}
+}
+
+// PortraitColorFromEnv reads and parses the PORTRAIT_COLOR env var.
+func PortraitColorFromEnv() PortraitColor { return ParsePortraitColor(os.Getenv("PORTRAIT_COLOR")) }
 
 const (
 	padX     = 30.0
@@ -42,6 +70,7 @@ const (
 	bFS, bLH = 13.5, 19.0 // bio font-size / line-height
 	bCW      = 8.12
 	font     = "'SFMono-Regular','SF Mono',Consolas,'Liberation Mono',Menlo,monospace"
+	ghRadius = 6.0
 )
 
 type theme struct {
@@ -49,7 +78,7 @@ type theme struct {
 	name, host, topkey, subkey string
 	arrow, branch, value, dash string
 	prompt                     string
-	pg                         [3]string
+	pgY, pgG                   [3]string // portrait gradient: yellow / gray 3-stop sets
 }
 
 var themes = map[string]theme{
@@ -58,14 +87,16 @@ var themes = map[string]theme{
 		name: "#f47067", host: "#6cb6ff", topkey: "#d2a8ff", subkey: "#e3b341",
 		arrow: "#56d4dd", branch: "#39929e", value: "#adbac7", dash: "#444c56",
 		prompt: "#57ab5a",
-		pg:     [3]string{"#f47067", "#d2a8ff", "#6cb6ff"},
+		pgY:    [3]string{"#ffdf5d", "#e3b341", "#d29922"},
+		pgG:    [3]string{"#f0f6fc", "#c9d1d9", "#8b949e"},
 	},
 	"light": {
 		win: "#ffffff", bar: "#f6f8fa", border: "#d0d7de", title: "#57606a",
 		name: "#cf222e", host: "#0969da", topkey: "#8250df", subkey: "#9a6700",
 		arrow: "#1b7c83", branch: "#1b7c83", value: "#24292f", dash: "#d8dee4",
 		prompt: "#1a7f37",
-		pg:     [3]string{"#cf222e", "#8250df", "#0969da"},
+		pgY:    [3]string{"#d4a72c", "#bf8700", "#9a6700"},
+		pgG:    [3]string{"#57606a", "#424a53", "#24292f"},
 	},
 }
 
@@ -149,6 +180,11 @@ func Render(themeName string, d Data) string {
 	t := themes[themeName]
 	pl := d.Portrait
 
+	mode := d.Color
+	if mode != ColorYellow && mode != ColorGray {
+		mode = ColorCycle
+	}
+
 	nCols := 0
 	for _, l := range pl {
 		if len(l) > nCols {
@@ -211,18 +247,35 @@ func Render(themeName string, d Data) string {
 
 	p(fmt.Sprintf(`<svg xmlns="http://www.w3.org/2000/svg" width="%d" height="%d" viewBox="0 0 %d %d" font-family="%s" role="img" aria-label="%s@%s — git fetch profile card">`,
 		int(W), int(H), int(W), int(H), font, esc(d.Name), esc(d.Host)))
-	p(`<style>` +
+	style := `<style>` +
 		`@keyframes blink{50%{opacity:0}}.cur{animation:blink 1.1s step-end infinite}` +
 		`@keyframes fin{from{opacity:0}to{opacity:1}}.fade{animation:fin .8s ease both}` +
 		fmt.Sprintf(`.tk{fill:%s;font-weight:700}.sk{fill:%s}`, t.topkey, t.subkey) +
 		fmt.Sprintf(`.ar{fill:%s}.br{fill:%s}.vl{fill:%s}`, t.arrow, t.branch, t.value) +
-		`text,tspan{white-space:pre}` +
-		`</style>`)
-	p(fmt.Sprintf(`<defs><linearGradient id="pg" x1="0" y1="0" x2="0" y2="1">`+
-		`<stop offset="0" stop-color="%s"/><stop offset="0.5" stop-color="%s"/>`+
-		`<stop offset="1" stop-color="%s"/></linearGradient></defs>`, t.pg[0], t.pg[1], t.pg[2]))
-	p(fmt.Sprintf(`<rect x="0.5" y="0.5" width="%.0f" height="%.0f" rx="12" fill="%s" stroke="%s"/>`,
-		W-1, H-1, t.win, t.border))
+		`text,tspan{white-space:pre}`
+	if mode == ColorCycle {
+		// gray overlay cross-fades over the yellow base; reduced-motion holds on yellow
+		style += `@keyframes pgc{0%,100%{opacity:0}50%{opacity:1}}` +
+			`.pgc{animation:pgc 9s ease-in-out infinite}` +
+			`@media (prefers-reduced-motion:reduce){.pgc{animation:none;opacity:0}}`
+	}
+	p(style + `</style>`)
+
+	grad := func(id string, c [3]string) string {
+		return fmt.Sprintf(`<linearGradient id="%s" x1="0" y1="0" x2="0" y2="1">`+
+			`<stop offset="0" stop-color="%s"/><stop offset="0.5" stop-color="%s"/>`+
+			`<stop offset="1" stop-color="%s"/></linearGradient>`, id, c[0], c[1], c[2])
+	}
+	switch mode {
+	case ColorCycle:
+		p(`<defs>` + grad("pgY", t.pgY) + grad("pgG", t.pgG) + `</defs>`)
+	case ColorGray:
+		p(`<defs>` + grad("pg", t.pgG) + `</defs>`)
+	default: // static yellow
+		p(`<defs>` + grad("pg", t.pgY) + `</defs>`)
+	}
+	p(fmt.Sprintf(`<rect x="0.5" y="0.5" width="%.0f" height="%.0f" rx="%g" fill="%s" stroke="%s"/>`,
+		W-1, H-1, ghRadius, t.win, t.border))
 
 	// starship-style prompt line: ~ ❯ git fetch
 	p(fmt.Sprintf(`<text x="%.0f" y="%.1f" font-size="%g">`+
@@ -231,15 +284,31 @@ func Render(themeName string, d Data) string {
 		`<tspan fill="%s">git</tspan><tspan fill="%s"> fetch</tspan></text>`,
 		padX, promptBase, iFS, t.arrow, t.prompt, t.subkey, t.value))
 
-	p(fmt.Sprintf(`<g class="fade" fill="url(#pg)" font-size="%g">`, pFS))
-	py := pTop + pFS
-	for _, l := range pl {
-		if strings.TrimSpace(l) != "" {
-			p(fmt.Sprintf(`<text x="%.0f" y="%.1f">%s</text>`, padX, py, esc(l)))
+	drawPortrait := func() {
+		py := pTop + pFS
+		for _, l := range pl {
+			if strings.TrimSpace(l) != "" {
+				p(fmt.Sprintf(`<text x="%.0f" y="%.1f">%s</text>`, padX, py, esc(l)))
+			}
+			py += pLH
 		}
-		py += pLH
 	}
-	p(`</g>`)
+	if mode == ColorCycle {
+		// two stacked copies at identical positions: the gray overlay's opacity
+		// cross-fades (via .pgc) to morph between the two gradients.
+		p(fmt.Sprintf(`<g class="fade" font-size="%g">`, pFS))
+		p(`<g fill="url(#pgY)">`)
+		drawPortrait()
+		p(`</g>`)
+		p(`<g class="pgc" fill="url(#pgG)" opacity="0">`)
+		drawPortrait()
+		p(`</g>`)
+		p(`</g>`)
+	} else {
+		p(fmt.Sprintf(`<g class="fade" fill="url(#pg)" font-size="%g">`, pFS))
+		drawPortrait()
+		p(`</g>`)
+	}
 
 	p(fmt.Sprintf(`<g font-size="%g">`, iFS))
 	yy := bodyTop + iFS

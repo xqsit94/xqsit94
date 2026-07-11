@@ -1,9 +1,10 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="976" height="669" viewBox="0 0 976 669" font-family="'SFMono-Regular','SF Mono',Consolas,'Liberation Mono',Menlo,monospace" role="img" aria-label="manikandan@xqsit.dev — git fetch profile card">
-<style>@keyframes blink{50%{opacity:0}}.cur{animation:blink 1.1s step-end infinite}@keyframes fin{from{opacity:0}to{opacity:1}}.fade{animation:fin .8s ease both}.tk{fill:#8250df;font-weight:700}.sk{fill:#9a6700}.ar{fill:#1b7c83}.br{fill:#1b7c83}.vl{fill:#24292f}text,tspan{white-space:pre}</style>
-<defs><linearGradient id="pg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#cf222e"/><stop offset="0.5" stop-color="#8250df"/><stop offset="1" stop-color="#0969da"/></linearGradient></defs>
-<rect x="0.5" y="0.5" width="975" height="668" rx="12" fill="#ffffff" stroke="#d0d7de"/>
+<style>@keyframes blink{50%{opacity:0}}.cur{animation:blink 1.1s step-end infinite}@keyframes fin{from{opacity:0}to{opacity:1}}.fade{animation:fin .8s ease both}.tk{fill:#8250df;font-weight:700}.sk{fill:#9a6700}.ar{fill:#1b7c83}.br{fill:#1b7c83}.vl{fill:#24292f}text,tspan{white-space:pre}@keyframes pgc{0%,100%{opacity:0}50%{opacity:1}}.pgc{animation:pgc 9s ease-in-out infinite}@media (prefers-reduced-motion:reduce){.pgc{animation:none;opacity:0}}</style>
+<defs><linearGradient id="pgY" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#d4a72c"/><stop offset="0.5" stop-color="#bf8700"/><stop offset="1" stop-color="#9a6700"/></linearGradient><linearGradient id="pgG" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#57606a"/><stop offset="0.5" stop-color="#424a53"/><stop offset="1" stop-color="#24292f"/></linearGradient></defs>
+<rect x="0.5" y="0.5" width="975" height="668" rx="6" fill="#ffffff" stroke="#d0d7de"/>
 <text x="30" y="45.0" font-size="15"><tspan fill="#1b7c83" font-weight="700">~ </tspan><tspan fill="#1a7f37" font-weight="700">❯ </tspan><tspan fill="#9a6700">git</tspan><tspan fill="#24292f"> fetch</tspan></text>
-<g class="fade" fill="url(#pg)" font-size="12">
+<g class="fade" font-size="12">
+<g fill="url(#pgY)">
 <text x="30" y="100.1">                     .`.      `&#39;&#39;...``..</text>
 <text x="30" y="113.5">                 .&#39;&#39;::&#39;.   ..&#39;:&#39;&#39;;  ``...````</text>
 <text x="30" y="126.9">            .`..::.:&#39;&#39;`. .````..`*   .     ..`&#39;:`</text>
@@ -45,6 +46,49 @@
 <text x="30" y="609.2">                        #;****!;;&#39;`.                :M:!&#39;  `::!:</text>
 <text x="30" y="622.6">                     .;#*!`;;:`                    &#39;M*!`  &#39;:   .</text>
 </g>
+<g class="pgc" fill="url(#pgG)" opacity="0">
+<text x="30" y="100.1">                     .`.      `&#39;&#39;...``..</text>
+<text x="30" y="113.5">                 .&#39;&#39;::&#39;.   ..&#39;:&#39;&#39;;  ``...````</text>
+<text x="30" y="126.9">            .`..::.:&#39;&#39;`. .````..`*   .     ..`&#39;:`</text>
+<text x="30" y="140.3">          &#39;!:`.&#39;` :*;;&#39;`..      ;; .&#39;:&#39;.       .::.</text>
+<text x="30" y="153.7">         :#`` &#39;.  ##:`&#39;&#39;       `:````&#39;::         &#39;!`</text>
+<text x="30" y="167.1">      ` &#39;#`:&#39;&#39;&#39; . *;.*;...    .`... .:;     ..`.  .&#39;:&#39;.</text>
+<text x="30" y="180.5">      ;.;! &#39;!;:&#39;&#39;&#39;:.*#&#39;::&#39;;;:::&#39;.  `::   ...`::     `:;.</text>
+<text x="30" y="193.9">     .!::*. &#39;**;;:*;!#!*!*W#!:&#39;&#39;&#39;:!*:``. ..&#39;;&#39;      .`:!</text>
+<text x="30" y="207.3">     &#39;&#39;`;*;``&#39;;**#*W#W#W#W*;!!!*#W*;&#39;`.`````   `&#39;`.  .&#39;!;</text>
+<text x="30" y="220.7">    .`;&#39;&#39;!#W!**!**;:;::&#39;&#39;` ..    `&#39;:;**!;:&#39;&#39;:;;:`   ..`&#39;*:</text>
+<text x="30" y="234.1">      &#39;;;;*#$#;`                     `;!*W#!;:`.     &#39;:&#39;;*</text>
+<text x="30" y="247.5">     .&#39;;&#39;:!M*                          .`:*#*!;:`.`. .:!;#</text>
+<text x="30" y="260.9">      ;W!;W#                              `*!&#39;&#39;&#39;`..&#39;``&#39;!!*</text>
+<text x="30" y="274.3">     .;W!;M`                               &#39;!` .``..:&#39;:;*;</text>
+<text x="30" y="287.7">      &#39;M!!W                                 :#!`.  .&#39;;::W:</text>
+<text x="30" y="301.1">       W!!#                  ....````&#39;:&#39;.     !W;&#39;.&#39;&#39;&#39;;;#`</text>
+<text x="30" y="314.4">       `#M!.`..`..        .:#@@@$@@M#!*#!&#39;``.  :W!::;;:!M.</text>
+<text x="30" y="327.8">        :@M$@@@@$$M*&#39;     !@@$MW#!;::&#39;&#39;:!!!@M!;&#39;;;;;**!##</text>
+<text x="30" y="341.2">      `:!M@$****WWMM#!;:`!M#;:!#**!***;`:*#:&#39;;*!!;*MW&#39;!#!</text>
+<text x="30" y="354.6">     $@@$*W:&#39;!!!*#MMMM@M*WM  ;W*&#39;#$MW!#` W*     &#39;*MW.;::*`</text>
+<text x="30" y="368.0">     ;$$;*M`W@:;$MW;#WM``*@#  &#39;:`..      M;      !W.*. .&#39;&#39;</text>
+<text x="30" y="381.4">      &#39;@` ;`&#39;!&#39;..   &#39;$`   *@!   ..      &#39;@.      *#!*` `&#39;`</text>
+<text x="30" y="394.8">       *M &#39;&#39;        M#     ;$*.       `;M:       *;&#39;.  `*</text>
+<text x="30" y="408.2">        W*;&#39;     .&#39;W@.      `*#**!!!;;;:.        `.;&#39;.`!;</text>
+<text x="30" y="421.6">         :W#!!!!*###:         &#39;.``..             . ;..`:.</text>
+<text x="30" y="435.0">          &#39;;... . .:;;   :;;:.:.                 ..   `;</text>
+<text x="30" y="448.4">           !.      ;W$M!!;``::&#39;                  `#;&#39;&#39;:</text>
+<text x="30" y="461.8">           &#39;`       `;;`                         ;M$;</text>
+<text x="30" y="475.2">            :      .     `                      &#39;*!*</text>
+<text x="30" y="488.6">            &#39;;   `&#39;:;!;;;&#39;&#39;:&#39;:!!;;:            .;#&#39;;</text>
+<text x="30" y="502.0">             !&#39; ...!M#&#39;.``.    ...            .`W&#39;&#39;;</text>
+<text x="30" y="515.4">              !&#39;     ``&#39;&#39;&#39;::`.              .`;W! `;</text>
+<text x="30" y="528.8">              `*&#39;`    `:!*!;`        .     `:*W:  .!</text>
+<text x="30" y="542.2">               .!*;.                 ...`&#39;:#W*.    #`</text>
+<text x="30" y="555.6">                 :W*`                ``;*##!&#39;.     &#39;*.</text>
+<text x="30" y="569.0">                  `##:.           .`;*#W*;&#39;.       .`W!`.</text>
+<text x="30" y="582.4">                    :WW*:&#39;&#39;&#39;::;:!!#MWW!```.        . :@#M*;`</text>
+<text x="30" y="595.8">                      &#39;!MM$MMMM$MW#!;&#39;.              ## W`.!!&#39;</text>
+<text x="30" y="609.2">                        #;****!;;&#39;`.                :M:!&#39;  `::!:</text>
+<text x="30" y="622.6">                     .;#*!`;;:`                    &#39;M*!`  &#39;:   .</text>
+</g>
+</g>
 <g font-size="15">
 <text x="538" y="82.0" font-weight="700"><tspan fill="#cf222e">manikandan</tspan><tspan fill="#57606a">@</tspan><tspan fill="#0969da">xqsit.dev</tspan></text>
 <rect class="cur" x="723.1" y="70.0" width="8.2" height="14.0" fill="#cf222e"/>
@@ -61,7 +105,7 @@
 <text x="538" y="369.1"><tspan class="br"> ├ </tspan><tspan class="sk">Frameworks</tspan><tspan class="ar"> → </tspan><tspan class="vl">Laravel · Vue.js · Adonis</tspan></text>
 <text x="538" y="392.1"><tspan class="br"> └ </tspan><tspan class="sk">AI</tspan><tspan class="ar"> → </tspan><tspan class="vl">LLM · Agents · MCP · RAG</tspan></text>
 <text x="538" y="438.1"><tspan class="tk">STATS</tspan><tspan class="ar"> → </tspan><tspan class="vl">Past Year</tspan></text>
-<text x="538" y="461.1"><tspan class="br"> └ </tspan><tspan class="vl">1,429</tspan><tspan class="sk"> commits</tspan><tspan class="br">  ·  </tspan><tspan class="vl">2,555</tspan><tspan class="sk"> PRs</tspan><tspan class="br">  ·  </tspan><tspan class="vl">133</tspan><tspan class="sk"> stars</tspan></text>
+<text x="538" y="461.1"><tspan class="br"> └ </tspan><tspan class="vl">1,458</tspan><tspan class="sk"> commits</tspan><tspan class="br">  ·  </tspan><tspan class="vl">2,589</tspan><tspan class="sk"> PRs</tspan><tspan class="br">  ·  </tspan><tspan class="vl">136</tspan><tspan class="sk"> stars</tspan></text>
 <text x="538" y="507.1"><tspan class="tk">EDU</tspan><tspan class="ar"> → </tspan><tspan class="vl">Madha Engineering College</tspan></text>
 <text x="538" y="530.1"><tspan class="br"> └ </tspan><tspan class="sk">Degree</tspan><tspan class="ar"> → </tspan><tspan class="vl">B.E. Computer Science</tspan></text>
 <text x="538" y="576.1"><tspan class="tk">WWW</tspan><tspan class="ar"> → </tspan><tspan class="vl">Links</tspan></text>
