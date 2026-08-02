@@ -20,7 +20,7 @@
   #### Sirine.ai B.V
   *Full Stack Engineer*
 
-  <sup>Jul 2025 - Present (1 yr) • India</sup>
+  <sup>Jul 2025 - Present (1 yr, 1 m) • India</sup>
 
   ---
   #### Oreala B.V
