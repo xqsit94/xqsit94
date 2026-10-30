@@ -35,13 +35,15 @@ type Stats struct {
 
 // PortraitColor selects how the ASCII portrait is tinted, chosen via the
 // PORTRAIT_COLOR env var. ColorCycle animates between the yellow and gray
-// gradients and honors prefers-reduced-motion (holding on yellow).
+// gradients and honors prefers-reduced-motion (holding on yellow). ColorCode
+// redraws the portrait as a field of code whose inked cells light up.
 type PortraitColor string
 
 const (
 	ColorYellow PortraitColor = "yellow"
 	ColorGray   PortraitColor = "gray"
 	ColorCycle  PortraitColor = "cycle"
+	ColorCode   PortraitColor = "code"
 )
 
 // ParsePortraitColor maps a PORTRAIT_COLOR value to a mode, defaulting to
@@ -52,6 +54,8 @@ func ParsePortraitColor(s string) PortraitColor {
 		return ColorYellow
 	case "gray", "grey":
 		return ColorGray
+	case "code":
+		return ColorCode
 	default:
 		return ColorCycle
 	}
@@ -79,6 +83,9 @@ type theme struct {
 	arrow, branch, value, dash string
 	prompt                     string
 	pgY, pgG                   [3]string // portrait gradient: yellow / gray 3-stop sets
+	holo                       [3]string // code mode: lit-cell gradient
+	dimA                       float64   // code mode: holo tint opacity on unlit code
+	glow                       float64   // code mode: lit-cell blur, 0 = none
 }
 
 var themes = map[string]theme{
@@ -89,6 +96,8 @@ var themes = map[string]theme{
 		prompt: "#57ab5a",
 		pgY:    [3]string{"#ffdf5d", "#e3b341", "#d29922"},
 		pgG:    [3]string{"#f0f6fc", "#c9d1d9", "#8b949e"},
+		holo:   [3]string{"#7fe3f5", "#b49cff", "#ff9fd8"},
+		dimA:   0.13, glow: 1.4,
 	},
 	"light": {
 		win: "#ffffff", bar: "#f6f8fa", border: "#d0d7de", title: "#57606a",
@@ -97,6 +106,8 @@ var themes = map[string]theme{
 		prompt: "#1a7f37",
 		pgY:    [3]string{"#d4a72c", "#bf8700", "#9a6700"},
 		pgG:    [3]string{"#57606a", "#424a53", "#24292f"},
+		holo:   [3]string{"#0a9fbf", "#8a63ff", "#e0559f"},
+		dimA:   0.15,
 	},
 }
 
@@ -180,10 +191,7 @@ func Render(themeName string, d Data) string {
 	t := themes[themeName]
 	pl := d.Portrait
 
-	mode := d.Color
-	if mode != ColorYellow && mode != ColorGray {
-		mode = ColorCycle
-	}
+	mode := ParsePortraitColor(string(d.Color))
 
 	nCols := 0
 	for _, l := range pl {
@@ -259,6 +267,9 @@ func Render(themeName string, d Data) string {
 			`.pgc{animation:pgc 9s ease-in-out infinite}` +
 			`@media (prefers-reduced-motion:reduce){.pgc{animation:none;opacity:0}}`
 	}
+	if mode == ColorCode {
+		style += codeStyle()
+	}
 	p(style + `</style>`)
 
 	grad := func(id string, c [3]string) string {
@@ -269,6 +280,8 @@ func Render(themeName string, d Data) string {
 	switch mode {
 	case ColorCycle:
 		p(`<defs>` + grad("pgY", t.pgY) + grad("pgG", t.pgG) + `</defs>`)
+	case ColorCode:
+		p(`<defs>` + codeDefs(t, nCols, len(pl), pTop) + `</defs>`)
 	case ColorGray:
 		p(`<defs>` + grad("pg", t.pgG) + `</defs>`)
 	default: // static yellow
@@ -293,7 +306,11 @@ func Render(themeName string, d Data) string {
 			py += pLH
 		}
 	}
-	if mode == ColorCycle {
+	if mode == ColorCode {
+		p(`<g class="fade">`)
+		o.WriteString(codePortrait(t, pl, nCols, pTop))
+		p(`</g>`)
+	} else if mode == ColorCycle {
 		// two stacked copies at identical positions: the gray overlay's opacity
 		// cross-fades (via .pgc) to morph between the two gradients.
 		p(fmt.Sprintf(`<g class="fade" font-size="%g">`, pFS))
