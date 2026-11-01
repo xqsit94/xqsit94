@@ -41,12 +41,12 @@
 <text x="30.0" y="247.5">ait is tinted, chosen via the // PORTRAIT_COLOR env var. ColorCy</text>
 <text x="30.0" y="260.9">cle animates between the yellow and gray // gradients and honors</text>
 <text x="37.2" y="274.2">prefers-reduced-motion (holding on yellow). ColorCode // redraw</text>
-<text x="30.0" y="287.7">s the portrait as a field of code whose inked cells light up. ty</text>
+<text x="30.0" y="287.6">s the portrait as a field of code whose inked cells light up. ty</text>
 <text x="30.0" y="301.1">pe PortraitColor string const ( ColorYellow PortraitColor = &#34;yel</text>
 <text x="30.0" y="314.5">low&#34; ColorGray PortraitColor = &#34;gray&#34; ColorCycle PortraitColor =</text>
 <text x="37.2" y="327.9">&#34;cycle&#34; ColorCode PortraitColor = &#34;code&#34; ) // ParsePortraitColo</text>
 <text x="30.0" y="341.2">r maps a PORTRAIT_COLOR value to a mode, defaulting to // ColorC</text>
-<text x="30.0" y="354.7">ycle for empty or unrecognized input. func ParsePortraitColor(s</text>
+<text x="30.0" y="354.6">ycle for empty or unrecognized input. func ParsePortraitColor(s</text>
 <text x="30.0" y="368.1">string) PortraitColor { switch strings.ToLower(strings.TrimSpace</text>
 <text x="30.0" y="381.5">(s)) { case &#34;yellow&#34;: return ColorYellow case &#34;gray&#34;, &#34;grey&#34;: re</text>
 <text x="30.0" y="394.9">turn ColorGray case &#34;code&#34;: return ColorCode default: return Col</text>
@@ -61,38 +61,38 @@
 <text x="30.0" y="515.5">tion Mono&#39;,Menlo,monospace&#34; ghRadius = 6.0 ) type theme struct {</text>
 <text x="37.2" y="528.9">win, bar, border, title string name, host, topkey, subkey strin</text>
 <text x="30.0" y="542.2">g arrow, branch, value, dash string prompt string pgY, pgG [3]st</text>
-<text x="30.0" y="555.6">ring // portrait gradient: yellow / gray 3-stop sets holo [3]str</text>
-<text x="30.0" y="569.1">ing // code mode: lit-cell gradient dimA float64 // code mode: h</text>
+<text x="30.0" y="555.7">ring // portrait gradient: yellow / gray 3-stop sets holo [3]str</text>
+<text x="30.0" y="569.0">ing // code mode: lit-cell gradient dimA float64 // code mode: h</text>
 <text x="30.0" y="582.5">olo tint opacity on unlit code glow float64 // code mode: lit-ce</text>
 <text x="30.0" y="595.9">ll blur, 0 = none } var themes = map[string]theme{ &#34;dark&#34;: { win</text>
 <text x="30.0" y="609.2">: &#34;#0d1117&#34;, bar: &#34;#161b22&#34;, border: &#34;#30363d&#34;, title: &#34;#7d8590&#34;</text>
-<text x="30.0" y="622.6">, name: &#34;#f47067&#34;, host: &#34;#6cb6ff&#34;, topkey: &#34;#d2a8ff&#34;, subkey: &#34;</text>
-<text x="30.0" y="636.1">#e3b341&#34;, arrow: &#34;#56d4dd&#34;, branch: &#34;#39929e&#34;, value: &#34;#adbac7&#34;,</text>
+<text x="30.0" y="622.7">, name: &#34;#f47067&#34;, host: &#34;#6cb6ff&#34;, topkey: &#34;#d2a8ff&#34;, subkey: &#34;</text>
+<text x="30.0" y="636.0">#e3b341&#34;, arrow: &#34;#56d4dd&#34;, branch: &#34;#39929e&#34;, value: &#34;#adbac7&#34;,</text>
 <text x="37.2" y="649.5">dash: &#34;#444c56&#34;, prompt: &#34;#57ab5a&#34;, pgY: [3]string{&#34;#ffdf5d&#34;, &#34;</text>
 <text x="30.0" y="662.9">#e3b341&#34;, &#34;#d29922&#34;}, pgG: [3]string{&#34;#f0f6fc&#34;, &#34;#c9d1d9&#34;, &#34;#8b9</text>
 <text x="30.0" y="676.2">49e&#34;}, holo: [3]string{&#34;#7fe3f5&#34;, &#34;#b49cff&#34;, &#34;#ff9fd8&#34;}, dimA: 0</text>
-<text x="30.0" y="689.6">.13, glow: 1.4, }, &#34;light&#34;: { win: &#34;#ffffff&#34;, bar: &#34;#f6f8fa&#34;, bo</text>
-<text x="30.0" y="703.1">rder: &#34;#d0d7de&#34;, title: &#34;#57606a&#34;, name: &#34;#cf222e&#34;, host: &#34;#0969</text>
+<text x="30.0" y="689.7">.13, glow: 1.4, }, &#34;light&#34;: { win: &#34;#ffffff&#34;, bar: &#34;#f6f8fa&#34;, bo</text>
+<text x="30.0" y="703.0">rder: &#34;#d0d7de&#34;, title: &#34;#57606a&#34;, name: &#34;#cf222e&#34;, host: &#34;#0969</text>
 <text x="30.0" y="716.5">da&#34;, topkey: &#34;#8250df&#34;, subkey: &#34;#9a6700&#34;, arrow: &#34;#1b7c83&#34;, bra</text>
 <text x="30.0" y="729.9">nch: &#34;#1b7c83&#34;, value: &#34;#24292f&#34;, dash: &#34;#d8dee4&#34;, prompt: &#34;#1a7</text>
 <text x="30.0" y="743.2">f37&#34;, pgY: [3]string{&#34;#d4a72c&#34;, &#34;#bf8700&#34;, &#34;#9a6700&#34;}, pgG: [3]s</text>
-<text x="30.0" y="756.6">tring{&#34;#57606a&#34;, &#34;#424a53&#34;, &#34;#24292f&#34;}, holo: [3]string{&#34;#0a9fbf</text>
-<text x="30.0" y="770.1">&#34;, &#34;#8a63ff&#34;, &#34;#e0559f&#34;}, dimA: 0.15, }, } type seg struct{ text</text>
+<text x="30.0" y="756.7">tring{&#34;#57606a&#34;, &#34;#424a53&#34;, &#34;#24292f&#34;}, holo: [3]string{&#34;#0a9fbf</text>
+<text x="30.0" y="770.0">&#34;, &#34;#8a63ff&#34;, &#34;#e0559f&#34;}, dimA: 0.15, }, } type seg struct{ text</text>
 <text x="30.0" y="783.5">, class string } // a colored run within a rich row type row str</text>
 <text x="30.0" y="796.9">uct { kind, key, val string // kind: top | mid | end | blank | s</text>
 <text x="30.0" y="810.2">tats segs []seg // for kind == &#34;stats&#34; } func (d Data) rows() []</text>
-<text x="30.0" y="823.6">row { return []row{ {kind: &#34;top&#34;, key: &#34;Host&#34;, val: d.Company},</text>
-<text x="30.0" y="837.1">{kind: &#34;top&#34;, key: &#34;OS&#34;, val: d.Title}, {kind: &#34;mid&#34;, key: &#34;Role</text>
+<text x="30.0" y="823.7">row { return []row{ {kind: &#34;top&#34;, key: &#34;Host&#34;, val: d.Company},</text>
+<text x="30.0" y="837.0">{kind: &#34;top&#34;, key: &#34;OS&#34;, val: d.Title}, {kind: &#34;mid&#34;, key: &#34;Role</text>
 <text x="30.0" y="850.5">&#34;, val: d.Role}, {kind: &#34;mid&#34;, key: &#34;Uptime&#34;, val: d.Uptime}, {k</text>
 <text x="30.0" y="863.9">ind: &#34;end&#34;, key: &#34;Location&#34;, val: d.Location}, {kind: &#34;blank&#34;},</text>
 <text x="30.0" y="877.2">{kind: &#34;top&#34;, key: &#34;DEV&#34;, val: &#34;Stack&#34;}, {kind: &#34;mid&#34;, key: &#34;Lan</text>
-<text x="30.0" y="890.6">guages&#34;, val: d.Langs}, {kind: &#34;mid&#34;, key: &#34;Frameworks&#34;, val: d.</text>
-<text x="30.0" y="904.1">// Package card renders the profile SVG card and connect buttons</text>
+<text x="30.0" y="890.7">guages&#34;, val: d.Langs}, {kind: &#34;mid&#34;, key: &#34;Frameworks&#34;, val: d.</text>
+<text x="30.0" y="904.0">// Package card renders the profile SVG card and connect buttons</text>
 <text x="37.2" y="917.5">(light + dark). package card import ( &#34;fmt&#34; &#34;html&#34; &#34;math&#34; &#34;os&#34;</text>
 <text x="30.0" y="930.9">&#34;strings&#34; &#34;github.com/xqsit94/xqsit94/internal/profile&#34; ) // Dat</text>
 <text x="30.0" y="944.2">a carries every value the card renders. type Data struct { Name,</text>
 <text x="37.2" y="957.7">Host string Title string Bio []string Portrait []string Company</text>
-<text x="30.0" y="971.1">, Role, Location string Uptime string Institution, Degree string</text>
+<text x="30.0" y="971.0">, Role, Location string Uptime string Institution, Degree string</text>
 <text x="37.2" y="984.5">Langs, Frameworks, AI string Website, LinkedIn, GitHub string C</text>
 <text x="30.0" y="997.9">ommits, PullRequests int Stars, Issues int Contributed int Color</text>
 <text x="37.2" y="1011.2">PortraitColor } // Stats is the subset of GitHub stats the card</text>
@@ -104,27 +104,27 @@
 <text x="30.0" y="1091.7">s the portrait as a field of code whose inked cells light up. ty</text>
 <text x="30.0" y="1105.0">pe PortraitColor string const ( ColorYellow PortraitColor = &#34;yel</text>
 <text x="30.0" y="1118.5">low&#34; ColorGray PortraitColor = &#34;gray&#34; ColorCycle PortraitColor =</text>
-<text x="37.2" y="1131.9">&#34;cycle&#34; ColorCode PortraitColor = &#34;code&#34; ) // ParsePortraitColo</text>
+<text x="37.2" y="1131.8">&#34;cycle&#34; ColorCode PortraitColor = &#34;code&#34; ) // ParsePortraitColo</text>
 <text x="30.0" y="1145.2">r maps a PORTRAIT_COLOR value to a mode, defaulting to // ColorC</text>
 <text x="30.0" y="1158.7">ycle for empty or unrecognized input. func ParsePortraitColor(s</text>
 <text x="30.0" y="1172.0">string) PortraitColor { switch strings.ToLower(strings.TrimSpace</text>
 <text x="30.0" y="1185.5">(s)) { case &#34;yellow&#34;: return ColorYellow case &#34;gray&#34;, &#34;grey&#34;: re</text>
-<text x="30.0" y="1198.9">turn ColorGray case &#34;code&#34;: return ColorCode default: return Col</text>
+<text x="30.0" y="1198.8">turn ColorGray case &#34;code&#34;: return ColorCode default: return Col</text>
 <text x="30.0" y="1212.2">orCycle } } // PortraitColorFromEnv reads and parses the PORTRAI</text>
 <text x="30.0" y="1225.7">T_COLOR env var. func PortraitColorFromEnv() PortraitColor { ret</text>
 <text x="30.0" y="1239.0">urn ParsePortraitColor(os.Getenv(&#34;PORTRAIT_COLOR&#34;)) } const ( pa</text>
 <text x="30.0" y="1252.5">dX = 30.0 contentY = 30.0 pFS, pLH = 12.0, 13.4 // portrait font</text>
-<text x="30.0" y="1265.9">-size / line-height pCW = 7.22 // portrait char advance iFS, iLH</text>
+<text x="30.0" y="1265.8">-size / line-height pCW = 7.22 // portrait char advance iFS, iLH</text>
 <text x="37.2" y="1279.2">= 15.0, 23.0 // info font-size / line-height iCW = 9.0 // info</text>
 <text x="30.0" y="1292.7">char advance bFS, bLH = 13.5, 19.0 // bio font-size / line-heigh</text>
 <text x="30.0" y="1306.0">t bCW = 8.12 font = &#34;&#39;SFMono-Regular&#39;,&#39;SF Mono&#39;,Consolas,&#39;Libera</text>
 <text x="30.0" y="1319.5">tion Mono&#39;,Menlo,monospace&#34; ghRadius = 6.0 ) type theme struct {</text>
-<text x="37.2" y="1332.9">win, bar, border, title string name, host, topkey, subkey strin</text>
+<text x="37.2" y="1332.8">win, bar, border, title string name, host, topkey, subkey strin</text>
 <text x="30.0" y="1346.2">g arrow, branch, value, dash string prompt string pgY, pgG [3]st</text>
 <text x="30.0" y="1359.7">ring // portrait gradient: yellow / gray 3-stop sets holo [3]str</text>
 <text x="30.0" y="1373.0">ing // code mode: lit-cell gradient dimA float64 // code mode: h</text>
 <text x="30.0" y="1386.5">olo tint opacity on unlit code glow float64 // code mode: lit-ce</text>
-<text x="30.0" y="1399.9">ll blur, 0 = none } var themes = map[string]theme{ &#34;dark&#34;: { win</text>
+<text x="30.0" y="1399.8">ll blur, 0 = none } var themes = map[string]theme{ &#34;dark&#34;: { win</text>
 <text x="30.0" y="1413.2">: &#34;#0d1117&#34;, bar: &#34;#161b22&#34;, border: &#34;#30363d&#34;, title: &#34;#7d8590&#34;</text>
 <text x="30.0" y="1426.7">, name: &#34;#f47067&#34;, host: &#34;#6cb6ff&#34;, topkey: &#34;#d2a8ff&#34;, subkey: &#34;</text>
 </g></g></mask>
@@ -143,12 +143,12 @@
 <text x="30.0" y="247.5">ait is tinted, chosen via the // PORTRAIT_COLOR env var. ColorCy</text>
 <text x="30.0" y="260.9">cle animates between the yellow and gray // gradients and honors</text>
 <text x="37.2" y="274.2">prefers-reduced-motion (holding on yellow). ColorCode // redraw</text>
-<text x="30.0" y="287.7">s the portrait as a field of code whose inked cells light up. ty</text>
+<text x="30.0" y="287.6">s the portrait as a field of code whose inked cells light up. ty</text>
 <text x="30.0" y="301.1">pe PortraitColor string const ( ColorYellow PortraitColor = &#34;yel</text>
 <text x="30.0" y="314.5">low&#34; ColorGray PortraitColor = &#34;gray&#34; ColorCycle PortraitColor =</text>
 <text x="37.2" y="327.9">&#34;cycle&#34; ColorCode PortraitColor = &#34;code&#34; ) // ParsePortraitColo</text>
 <text x="30.0" y="341.2">r maps a PORTRAIT_COLOR value to a mode, defaulting to // ColorC</text>
-<text x="30.0" y="354.7">ycle for empty or unrecognized input. func ParsePortraitColor(s</text>
+<text x="30.0" y="354.6">ycle for empty or unrecognized input. func ParsePortraitColor(s</text>
 <text x="30.0" y="368.1">string) PortraitColor { switch strings.ToLower(strings.TrimSpace</text>
 <text x="30.0" y="381.5">(s)) { case &#34;yellow&#34;: return ColorYellow case &#34;gray&#34;, &#34;grey&#34;: re</text>
 <text x="30.0" y="394.9">turn ColorGray case &#34;code&#34;: return ColorCode default: return Col</text>
@@ -163,38 +163,38 @@
 <text x="30.0" y="515.5">tion Mono&#39;,Menlo,monospace&#34; ghRadius = 6.0 ) type theme struct {</text>
 <text x="37.2" y="528.9">win, bar, border, title string name, host, topkey, subkey strin</text>
 <text x="30.0" y="542.2">g arrow, branch, value, dash string prompt string pgY, pgG [3]st</text>
-<text x="30.0" y="555.6">ring // portrait gradient: yellow / gray 3-stop sets holo [3]str</text>
-<text x="30.0" y="569.1">ing // code mode: lit-cell gradient dimA float64 // code mode: h</text>
+<text x="30.0" y="555.7">ring // portrait gradient: yellow / gray 3-stop sets holo [3]str</text>
+<text x="30.0" y="569.0">ing // code mode: lit-cell gradient dimA float64 // code mode: h</text>
 <text x="30.0" y="582.5">olo tint opacity on unlit code glow float64 // code mode: lit-ce</text>
 <text x="30.0" y="595.9">ll blur, 0 = none } var themes = map[string]theme{ &#34;dark&#34;: { win</text>
 <text x="30.0" y="609.2">: &#34;#0d1117&#34;, bar: &#34;#161b22&#34;, border: &#34;#30363d&#34;, title: &#34;#7d8590&#34;</text>
-<text x="30.0" y="622.6">, name: &#34;#f47067&#34;, host: &#34;#6cb6ff&#34;, topkey: &#34;#d2a8ff&#34;, subkey: &#34;</text>
-<text x="30.0" y="636.1">#e3b341&#34;, arrow: &#34;#56d4dd&#34;, branch: &#34;#39929e&#34;, value: &#34;#adbac7&#34;,</text>
+<text x="30.0" y="622.7">, name: &#34;#f47067&#34;, host: &#34;#6cb6ff&#34;, topkey: &#34;#d2a8ff&#34;, subkey: &#34;</text>
+<text x="30.0" y="636.0">#e3b341&#34;, arrow: &#34;#56d4dd&#34;, branch: &#34;#39929e&#34;, value: &#34;#adbac7&#34;,</text>
 <text x="37.2" y="649.5">dash: &#34;#444c56&#34;, prompt: &#34;#57ab5a&#34;, pgY: [3]string{&#34;#ffdf5d&#34;, &#34;</text>
 <text x="30.0" y="662.9">#e3b341&#34;, &#34;#d29922&#34;}, pgG: [3]string{&#34;#f0f6fc&#34;, &#34;#c9d1d9&#34;, &#34;#8b9</text>
 <text x="30.0" y="676.2">49e&#34;}, holo: [3]string{&#34;#7fe3f5&#34;, &#34;#b49cff&#34;, &#34;#ff9fd8&#34;}, dimA: 0</text>
-<text x="30.0" y="689.6">.13, glow: 1.4, }, &#34;light&#34;: { win: &#34;#ffffff&#34;, bar: &#34;#f6f8fa&#34;, bo</text>
-<text x="30.0" y="703.1">rder: &#34;#d0d7de&#34;, title: &#34;#57606a&#34;, name: &#34;#cf222e&#34;, host: &#34;#0969</text>
+<text x="30.0" y="689.7">.13, glow: 1.4, }, &#34;light&#34;: { win: &#34;#ffffff&#34;, bar: &#34;#f6f8fa&#34;, bo</text>
+<text x="30.0" y="703.0">rder: &#34;#d0d7de&#34;, title: &#34;#57606a&#34;, name: &#34;#cf222e&#34;, host: &#34;#0969</text>
 <text x="30.0" y="716.5">da&#34;, topkey: &#34;#8250df&#34;, subkey: &#34;#9a6700&#34;, arrow: &#34;#1b7c83&#34;, bra</text>
 <text x="30.0" y="729.9">nch: &#34;#1b7c83&#34;, value: &#34;#24292f&#34;, dash: &#34;#d8dee4&#34;, prompt: &#34;#1a7</text>
 <text x="30.0" y="743.2">f37&#34;, pgY: [3]string{&#34;#d4a72c&#34;, &#34;#bf8700&#34;, &#34;#9a6700&#34;}, pgG: [3]s</text>
-<text x="30.0" y="756.6">tring{&#34;#57606a&#34;, &#34;#424a53&#34;, &#34;#24292f&#34;}, holo: [3]string{&#34;#0a9fbf</text>
-<text x="30.0" y="770.1">&#34;, &#34;#8a63ff&#34;, &#34;#e0559f&#34;}, dimA: 0.15, }, } type seg struct{ text</text>
+<text x="30.0" y="756.7">tring{&#34;#57606a&#34;, &#34;#424a53&#34;, &#34;#24292f&#34;}, holo: [3]string{&#34;#0a9fbf</text>
+<text x="30.0" y="770.0">&#34;, &#34;#8a63ff&#34;, &#34;#e0559f&#34;}, dimA: 0.15, }, } type seg struct{ text</text>
 <text x="30.0" y="783.5">, class string } // a colored run within a rich row type row str</text>
 <text x="30.0" y="796.9">uct { kind, key, val string // kind: top | mid | end | blank | s</text>
 <text x="30.0" y="810.2">tats segs []seg // for kind == &#34;stats&#34; } func (d Data) rows() []</text>
-<text x="30.0" y="823.6">row { return []row{ {kind: &#34;top&#34;, key: &#34;Host&#34;, val: d.Company},</text>
-<text x="30.0" y="837.1">{kind: &#34;top&#34;, key: &#34;OS&#34;, val: d.Title}, {kind: &#34;mid&#34;, key: &#34;Role</text>
+<text x="30.0" y="823.7">row { return []row{ {kind: &#34;top&#34;, key: &#34;Host&#34;, val: d.Company},</text>
+<text x="30.0" y="837.0">{kind: &#34;top&#34;, key: &#34;OS&#34;, val: d.Title}, {kind: &#34;mid&#34;, key: &#34;Role</text>
 <text x="30.0" y="850.5">&#34;, val: d.Role}, {kind: &#34;mid&#34;, key: &#34;Uptime&#34;, val: d.Uptime}, {k</text>
 <text x="30.0" y="863.9">ind: &#34;end&#34;, key: &#34;Location&#34;, val: d.Location}, {kind: &#34;blank&#34;},</text>
 <text x="30.0" y="877.2">{kind: &#34;top&#34;, key: &#34;DEV&#34;, val: &#34;Stack&#34;}, {kind: &#34;mid&#34;, key: &#34;Lan</text>
-<text x="30.0" y="890.6">guages&#34;, val: d.Langs}, {kind: &#34;mid&#34;, key: &#34;Frameworks&#34;, val: d.</text>
-<text x="30.0" y="904.1">// Package card renders the profile SVG card and connect buttons</text>
+<text x="30.0" y="890.7">guages&#34;, val: d.Langs}, {kind: &#34;mid&#34;, key: &#34;Frameworks&#34;, val: d.</text>
+<text x="30.0" y="904.0">// Package card renders the profile SVG card and connect buttons</text>
 <text x="37.2" y="917.5">(light + dark). package card import ( &#34;fmt&#34; &#34;html&#34; &#34;math&#34; &#34;os&#34;</text>
 <text x="30.0" y="930.9">&#34;strings&#34; &#34;github.com/xqsit94/xqsit94/internal/profile&#34; ) // Dat</text>
 <text x="30.0" y="944.2">a carries every value the card renders. type Data struct { Name,</text>
 <text x="37.2" y="957.7">Host string Title string Bio []string Portrait []string Company</text>
-<text x="30.0" y="971.1">, Role, Location string Uptime string Institution, Degree string</text>
+<text x="30.0" y="971.0">, Role, Location string Uptime string Institution, Degree string</text>
 <text x="37.2" y="984.5">Langs, Frameworks, AI string Website, LinkedIn, GitHub string C</text>
 <text x="30.0" y="997.9">ommits, PullRequests int Stars, Issues int Contributed int Color</text>
 <text x="37.2" y="1011.2">PortraitColor } // Stats is the subset of GitHub stats the card</text>
@@ -206,27 +206,27 @@
 <text x="30.0" y="1091.7">s the portrait as a field of code whose inked cells light up. ty</text>
 <text x="30.0" y="1105.0">pe PortraitColor string const ( ColorYellow PortraitColor = &#34;yel</text>
 <text x="30.0" y="1118.5">low&#34; ColorGray PortraitColor = &#34;gray&#34; ColorCycle PortraitColor =</text>
-<text x="37.2" y="1131.9">&#34;cycle&#34; ColorCode PortraitColor = &#34;code&#34; ) // ParsePortraitColo</text>
+<text x="37.2" y="1131.8">&#34;cycle&#34; ColorCode PortraitColor = &#34;code&#34; ) // ParsePortraitColo</text>
 <text x="30.0" y="1145.2">r maps a PORTRAIT_COLOR value to a mode, defaulting to // ColorC</text>
 <text x="30.0" y="1158.7">ycle for empty or unrecognized input. func ParsePortraitColor(s</text>
 <text x="30.0" y="1172.0">string) PortraitColor { switch strings.ToLower(strings.TrimSpace</text>
 <text x="30.0" y="1185.5">(s)) { case &#34;yellow&#34;: return ColorYellow case &#34;gray&#34;, &#34;grey&#34;: re</text>
-<text x="30.0" y="1198.9">turn ColorGray case &#34;code&#34;: return ColorCode default: return Col</text>
+<text x="30.0" y="1198.8">turn ColorGray case &#34;code&#34;: return ColorCode default: return Col</text>
 <text x="30.0" y="1212.2">orCycle } } // PortraitColorFromEnv reads and parses the PORTRAI</text>
 <text x="30.0" y="1225.7">T_COLOR env var. func PortraitColorFromEnv() PortraitColor { ret</text>
 <text x="30.0" y="1239.0">urn ParsePortraitColor(os.Getenv(&#34;PORTRAIT_COLOR&#34;)) } const ( pa</text>
 <text x="30.0" y="1252.5">dX = 30.0 contentY = 30.0 pFS, pLH = 12.0, 13.4 // portrait font</text>
-<text x="30.0" y="1265.9">-size / line-height pCW = 7.22 // portrait char advance iFS, iLH</text>
+<text x="30.0" y="1265.8">-size / line-height pCW = 7.22 // portrait char advance iFS, iLH</text>
 <text x="37.2" y="1279.2">= 15.0, 23.0 // info font-size / line-height iCW = 9.0 // info</text>
 <text x="30.0" y="1292.7">char advance bFS, bLH = 13.5, 19.0 // bio font-size / line-heigh</text>
 <text x="30.0" y="1306.0">t bCW = 8.12 font = &#34;&#39;SFMono-Regular&#39;,&#39;SF Mono&#39;,Consolas,&#39;Libera</text>
 <text x="30.0" y="1319.5">tion Mono&#39;,Menlo,monospace&#34; ghRadius = 6.0 ) type theme struct {</text>
-<text x="37.2" y="1332.9">win, bar, border, title string name, host, topkey, subkey strin</text>
+<text x="37.2" y="1332.8">win, bar, border, title string name, host, topkey, subkey strin</text>
 <text x="30.0" y="1346.2">g arrow, branch, value, dash string prompt string pgY, pgG [3]st</text>
 <text x="30.0" y="1359.7">ring // portrait gradient: yellow / gray 3-stop sets holo [3]str</text>
 <text x="30.0" y="1373.0">ing // code mode: lit-cell gradient dimA float64 // code mode: h</text>
 <text x="30.0" y="1386.5">olo tint opacity on unlit code glow float64 // code mode: lit-ce</text>
-<text x="30.0" y="1399.9">ll blur, 0 = none } var themes = map[string]theme{ &#34;dark&#34;: { win</text>
+<text x="30.0" y="1399.8">ll blur, 0 = none } var themes = map[string]theme{ &#34;dark&#34;: { win</text>
 <text x="30.0" y="1413.2">: &#34;#0d1117&#34;, bar: &#34;#161b22&#34;, border: &#34;#30363d&#34;, title: &#34;#7d8590&#34;</text>
 <text x="30.0" y="1426.7">, name: &#34;#f47067&#34;, host: &#34;#6cb6ff&#34;, topkey: &#34;#d2a8ff&#34;, subkey: &#34;</text>
 </g></g></mask>
@@ -249,12 +249,12 @@
 <text x="66.1" y="247.5">*=+$\{+&lt;                          \&lt;%1*]+{}=\++ +{}1*</text>
 <text x="73.3" y="260.9">/|&lt;]]&lt;                              +&lt;$+\=010[&lt;/}#]}</text>
 <text x="66.1" y="274.2">/$}+%1\                               ]0| %+/&lt;%#0|{0#</text>
-<text x="73.3" y="287.7">$]#%+                                 |&gt;+=&lt;  &lt;10[/+\</text>
+<text x="73.3" y="287.6">$]#%+                                 |&gt;+=&lt;  &lt;10[/+\</text>
 <text x="80.5" y="301.1">+1&gt;0                  /\$]#]{0/&gt;=}     /|&lt;*=]{#&lt;|*{</text>
 <text x="80.5" y="314.5">&gt;0%&lt;0/=+*$0        &lt;$+0+]|&gt;&gt;%+}]*1$$#%  0%0/&gt;{&lt;#[&lt;#</text>
 <text x="87.8" y="327.9">+\0\/\|=&lt;*/10     {${#}\]+11==/**}]&lt;&gt;&lt;={1*1&lt;+000#</text>
 <text x="73.3" y="341.2">*{01]%0|/=&lt;0&gt;{$&gt;]*&gt;%+$[#]%+[*\+[}|00+=}[=&lt;&lt;}#&lt;&gt;&gt;[$*</text>
-<text x="66.1" y="354.7">[&lt;[]=/&gt;*|10+1%&gt;==|{]*+  #&gt;]\{#}&lt;[&lt;= }}     1&gt;#|]\*[*|</text>
+<text x="66.1" y="354.6">[&lt;[]=/&gt;*|10+1%&gt;==|{]*+  #&gt;]\{#}&lt;[&lt;= }}     1&gt;#|]\*[*|</text>
 <text x="66.1" y="368.1">/}=&gt;=1%%\$]1**$1[\]|*=\  #$%+=      $&lt;      &lt;|/[&gt; =&gt;$</text>
 <text x="73.3" y="381.5">=&gt;1 \|++]=/   %0=   %[#   &lt;}      %=|      [0]]* &lt;&lt;|</text>
 <text x="80.5" y="394.9">}% /}        &lt;0     }0/*       |%0$       [&lt;}1  |]</text>
@@ -269,12 +269,12 @@
 <text x="131.1" y="515.5">**     $/}/+={/}              *&lt;+&lt;{ ]%</text>
 <text x="131.1" y="528.9">+|#&gt;    #}\[[/0        [     01{0&gt;  /$</text>
 <text x="138.3" y="542.2">\#%==                 }{$0{&gt;%$&gt;{    1+</text>
-<text x="152.7" y="555.6">}=}+                //\=/[&lt;*&gt;     $[|</text>
-<text x="160.0" y="569.1">+%1*]           &gt;$[&gt;]*+|&gt;&lt;       |&lt;#*=/</text>
+<text x="152.7" y="555.7">}=}+                //\=/[&lt;*&gt;     $[|</text>
+<text x="160.0" y="569.0">+%1*]           &gt;$[&gt;]*+|&gt;&lt;       |&lt;#*=/</text>
 <text x="174.4" y="582.5">&gt;/[$*|##\+#}\}\}=$[$&lt;$0        # +$]1=*\</text>
 <text x="188.8" y="595.9">$[&gt;&lt;}==$+#%0#&lt;&lt;1/              [% *+*[0]</text>
 <text x="203.3" y="609.2">{=/+/]&lt;}\&gt;&lt;\                &gt;&gt;%]\  &lt;$/}}</text>
-<text x="181.6" y="622.6">#+%*}+{[/%                    &lt;|&lt;1+  1{   &gt;</text>
+<text x="181.6" y="622.7">#+%*}+{[/%                    &lt;|&lt;1+  1{   &gt;</text>
 </g>
 <g class="cg1">
 <text x="181.6" y="100.1">*%*      |=}1*+${|0</text>
@@ -291,12 +291,12 @@
 <text x="66.1" y="247.5">*||1%}0\                          &lt;/&gt;0[$}#0/&gt;0&gt; |+$&lt;]</text>
 <text x="73.3" y="260.9">1=1&lt;%/                              #+[$*}|/+\+%&lt;[1&gt;</text>
 <text x="66.1" y="274.2">|\++]]0                               1&lt;1 +&lt;+\&lt;\|&gt;1|&gt;</text>
-<text x="73.3" y="287.7">=/#=+                                 [*&gt;\+  }]}1|%/</text>
+<text x="73.3" y="287.6">=/#=+                                 [*&gt;\+  }]}1|%/</text>
 <text x="80.5" y="301.1">[{*1                  &lt;}/[*&gt;%%[+&lt;#     $+]}|\[%}]+*</text>
 <text x="80.5" y="314.5">#+##1&gt;[$+%}        0#[$|=+1#1%$/*\/1#&lt;  {{/&gt;}\&lt;]]}}</text>
 <text x="87.8" y="327.9">&lt;1[||[+&lt;0/&lt;0+     ]%${${+0&lt;\1/+]*${$&gt;|$%&gt;/]{=%1=|</text>
 <text x="73.3" y="341.2">$}$*\$+0\%++&lt;$1=0]#]]}%*={%%%/|[1]#}*}=+#&lt;$&gt;{#&gt;]\|*</text>
-<text x="66.1" y="354.7">}0[1=&lt;#}=#&gt;&gt;&gt;[1}+1\#*%  +/{[/}*[0}1 +&lt;     |=#0]\$}%*</text>
+<text x="66.1" y="354.6">}0[1=&lt;#}=#&gt;&gt;&gt;[1}+1\#*%  +/{[/}*[0}1 +&lt;     |=#0]\$}%*</text>
 <text x="66.1" y="368.1">+||0%|/$#[\\{$*[[&gt;&lt;*]%|  [*1=|      /]      []&gt;** {|/</text>
 <text x="73.3" y="381.5">+]% %%%#[/|   /&gt;\   [=%   \\      *%{      =\[}] 0%|</text>
 <text x="80.5" y="394.9">]$ &lt;*        /0     /&lt;0&gt;       /{&gt;0       &gt;&gt;&gt;0  }|</text>
@@ -311,12 +311,12 @@
 <text x="131.1" y="515.5">]]     /1=[]*|}/              ]%1[0 &gt;/</text>
 <text x="131.1" y="528.9">}&lt;}&lt;    }[&lt;&lt;0=1        {     $0|\%  01</text>
 <text x="138.3" y="542.2">&gt;$&gt;}#                 ]]{${0[$/$    [#</text>
-<text x="152.7" y="555.6">}\{}                &gt;[{11#&lt;}%     =&lt;0</text>
-<text x="160.0" y="569.1">{1{}{           /\[[#01%%=       \#*[]]</text>
+<text x="152.7" y="555.7">}\{}                &gt;[{11#&lt;}%     =&lt;0</text>
+<text x="160.0" y="569.0">{1{}{           /\[[#01%%=       \#*[]]</text>
 <text x="174.4" y="582.5">\{]/0[{$\*&gt;\[&lt;0$&gt;{1{*}#        { $}%&lt;$=$</text>
 <text x="188.8" y="595.9">+$11/]\[{&gt;[]\}$1]              [[ %/1&lt;0&lt;</text>
 <text x="203.3" y="609.2">\\{|$#&lt;*=]|$                }+{}&gt;  [{&gt;%&lt;</text>
-<text x="181.6" y="622.6">{1]1|$==0%                    ]]+$=  /]   }</text>
+<text x="181.6" y="622.7">{1]1|$==0%                    ]]+$=  /]   }</text>
 </g>
 <g class="cg2">
 <text x="181.6" y="100.1">{1#      &lt;#1+0|1&lt;=\</text>
@@ -333,12 +333,12 @@
 <text x="66.1" y="247.5">]=#1=|[#                          $|+]/&lt;[${%$\&gt; {0\/#</text>
 <text x="73.3" y="260.9">*]%*1[                              %&gt;==0&gt;*=||*&gt;0|&gt;*</text>
 <text x="66.1" y="274.2">\]&gt;*&lt;/]                               |1* 0&gt;#/0[&lt;%\{{</text>
-<text x="73.3" y="287.7">|%=1=                                 \=#&gt;{  #\&gt;\+\*</text>
+<text x="73.3" y="287.6">|%=1=                                 \=#&gt;{  #\&gt;\+\*</text>
 <text x="80.5" y="301.1">]{+*                  ]\[0]#=01[{*     {&gt;%}&lt;+|$1|*&gt;</text>
 <text x="80.5" y="314.5">1&gt;+=+&gt;${\]/        [|1[0=/$]%|[\11&gt;/01  [0}&lt;*&lt;}&gt;&lt;[*</text>
 <text x="87.8" y="327.9">/1$[%1]={=[%$     {+}\+&gt;0=]+]}|*}$=%%$#&gt;[*$1{#0{/</text>
 <text x="73.3" y="341.2">==$&lt;/\%0+[=0}1&gt;{=|[[{}[###%*[0|&gt;/=]=]=}|}#&lt;\\0$=/[&lt;</text>
-<text x="66.1" y="354.7">1|[0&gt;&lt;&gt;&lt;|=0&lt;]&gt;\&lt;0\0}+]  {\%%%[++1}\ +/     &lt;]=$+=%0]{</text>
+<text x="66.1" y="354.6">1|[0&gt;&lt;&gt;&lt;|=0&lt;]&gt;\&lt;0\0}+]  {\%%%[++1}\ +/     &lt;]=$+=%0]{</text>
 <text x="66.1" y="368.1">*]]}$&lt;${[$[]/01|%+&lt;|$+&gt;  [{*&gt;]      #]      ]*1|* {0\</text>
 <text x="73.3" y="381.5">%|+ }/$&lt;%&lt;{   0}|   ]&lt;]   [1      #+}      \#&lt;[| &lt;/0</text>
 <text x="80.5" y="394.9">1= #*        ++     ]1&lt;/       00*\       ##=]  &gt;=</text>
@@ -353,12 +353,12 @@
 <text x="131.1" y="515.5">*$     $$&gt;{&lt;/&lt;+}              =$=0% $&gt;</text>
 <text x="131.1" y="528.9">%${&gt;    \0#+$+#        $     ##]$$  0*</text>
 <text x="138.3" y="542.2">0%#$]                 110}|}+$/|    +/</text>
-<text x="152.7" y="555.6">#*]1                %+%#|0]&lt;}     */&lt;</text>
-<text x="160.0" y="569.1">}{\1|           |][/%/|\[0       1{1\}[</text>
+<text x="152.7" y="555.7">#*]1                %+%#|0]&lt;}     */&lt;</text>
+<text x="160.0" y="569.0">}{\1|           |][/%/|\[0       1{1\}[</text>
 <text x="174.4" y="582.5">&gt;&gt;*[#*&lt;1[|=]+\&gt;+*&gt;\|0|*        / %0#\|$/</text>
 <text x="188.8" y="595.9">+/{1&gt;/%%==%\]&gt;{$$              &gt;0 0&lt;/*+1</text>
 <text x="203.3" y="609.2">{\&gt;/%#**/}=]                0[*+\  &lt;#[[[</text>
-<text x="181.6" y="622.6">\0\]&lt;$[$=&gt;                    #[0$]  0}   =</text>
+<text x="181.6" y="622.7">\0\]&lt;$[$=&gt;                    #[0$]  0}   =</text>
 </g>
 <g class="cg3">
 <text x="181.6" y="100.1">&lt;/0      |$=*}[}{]|</text>
@@ -375,12 +375,12 @@
 <text x="66.1" y="247.5">[1##{+[}                          $$/&lt;||*#\1=// *&gt;=%[</text>
 <text x="73.3" y="260.9">0#|%{/                              [{+#0[&lt;$&gt;{#&lt;&gt;/[]</text>
 <text x="66.1" y="274.2">#[$%%&gt;%                               \}&gt; +[|%0$|[\%]</text>
-<text x="73.3" y="287.7">=%{|+                                 {=%0*  {&gt;\1+{*</text>
+<text x="73.3" y="287.6">=%{|+                                 {=%0*  {&gt;\1+{*</text>
 <text x="80.5" y="301.1">[${1                  &gt;&lt;=&gt;%&gt;]|&gt;+&lt;#     ]#+%|0101\10</text>
 <text x="80.5" y="314.5">|}&lt;{}}}}$01        &gt;|=]*{&lt;}[1/&gt;%\&lt;+|1}  \|%/&gt;&gt;]$1/\</text>
 <text x="87.8" y="327.9">\[|1#*{}#1##*     =/\0\}+10&gt;%0[00=%{$|}1*{[}{[}${</text>
 <text x="73.3" y="341.2">+{&lt;*+{0]/%]|1$}{/}]%$[%&lt;#*%|\#|]}{#&lt;|+*/}[}$&gt;$*]|&gt;%</text>
-<text x="66.1" y="354.7">\&gt;1/#${}&lt;1\][|+0%]{*&lt;]  0}$%%#&lt;*=[| /$     +1\]]%[&gt;{$</text>
+<text x="66.1" y="354.6">\&gt;1/#${}&lt;1\][|+0%]{*&lt;]  0}$%%#&lt;*=[| /$     +1\]]%[&gt;{$</text>
 <text x="66.1" y="368.1">%&gt;+${01[&lt;1&gt;[{\+=]{#\[%{  |+[#|      \\      ]*+*+ }{=</text>
 <text x="73.3" y="381.5">&gt;&gt;{ +{|}\\}   +%/   [&gt;&lt;   1$      |[}      |&lt;#+{ [+&gt;</text>
 <text x="80.5" y="394.9">{$ &lt;&lt;        /+     +&gt;]&gt;       +*$|       {#$&lt;  }#</text>
@@ -395,12 +395,12 @@
 <text x="131.1" y="515.5">&gt;%     &lt;}|]%[/{[              |/%%% {[</text>
 <text x="131.1" y="528.9">&lt;[1]    #={[}/&gt;        #     +[%*|  \#</text>
 <text x="138.3" y="542.2">#[]*&gt;                 {[01&gt;1=00\    $#</text>
-<text x="152.7" y="555.6">0|[*                |1+1+||+{     $$|</text>
-<text x="160.0" y="569.1">|/[*\           1[1]\]\1\\       ]$*1$=</text>
+<text x="152.7" y="555.7">0|[*                |1+1+||+{     $$|</text>
+<text x="160.0" y="569.0">|/[*\           1[1]\]\1\\       ]$*1$=</text>
 <text x="174.4" y="582.5">1%\+1&lt;{###[1=&lt;&lt;&lt;}&gt;*0&lt;1$        | **]+{{[</text>
 <text x="188.8" y="595.9">[*&lt;|[+}}%|+&lt;*1\0\              1{ $|*]%%</text>
 <text x="203.3" y="609.2">*&gt;//1*1&gt;[={/                #\[=1  +#/%\</text>
-<text x="181.6" y="622.6">&lt;]#11|%1&lt;/                    *|1%#  }&lt;   [</text>
+<text x="181.6" y="622.7">&lt;]#11|%1&lt;/                    *|1%#  }&lt;   [</text>
 </g>
 <g class="cg4">
 <text x="181.6" y="100.1">#\0      $$\&lt;[}]1*$</text>
@@ -417,12 +417,12 @@
 <text x="66.1" y="247.5">&gt;{0}/$+#                          &gt;&gt;=/%|*%&gt;+={| \+&gt;{1</text>
 <text x="73.3" y="260.9">$%&gt;&gt;&gt;=                              |+&lt;#/1%#%#\*||}*</text>
 <text x="66.1" y="274.2">0[+0#*]                               /*&gt; #$0/|[]\0#%</text>
-<text x="73.3" y="287.7">}*+&lt;#                                 =}\}[  +&lt;}0|$*</text>
+<text x="73.3" y="287.6">}*+&lt;#                                 =}\}[  +&lt;}0|$*</text>
 <text x="80.5" y="301.1">+{#&lt;                  +{$}0}%&gt;+%11     #+$&lt;%%0\#&lt;&gt;1</text>
 <text x="80.5" y="314.5">&gt;{[{$$}*1*|        *==#0*1[*{*$10%%1=0  }$[$%]&gt;/}&lt;&gt;</text>
 <text x="87.8" y="327.9">]0[[[|*|%&lt;1]/     +=$&lt;$={&lt;\]=\*/*[}[}}#0=}/&gt;[$%|]</text>
 <text x="73.3" y="341.2">&lt;$|%}%$[]}0{+|/$]&gt;=[*|%\$]}&lt;1]*}|+=+&lt;11+*{]=%&gt;$//0$</text>
-<text x="66.1" y="354.7">0%]$++#{]0=+/[=|*][{+\  +=&lt;[=]//%=&lt; |+     #=|\&lt;=%[+&lt;</text>
+<text x="66.1" y="354.6">0%]$++#{]0=+/[=|*][{+\  +=&lt;[=]//%=&lt; |+     #=|\&lt;=%[+&lt;</text>
 <text x="66.1" y="368.1">#&lt;/&lt;&gt;]\=1#[={0$#*%&gt;/|%[  &gt;$%+*      ]&lt;      /01=$ &lt;*{</text>
 <text x="73.3" y="381.5">\\% ]%]#{=&gt;   &lt;$1   /#\   &lt;0      0%$      #{%+&lt; 0/}</text>
 <text x="80.5" y="394.9">=0 =+        1{     #[|0       &gt;#+$       &gt;11|  ]=</text>
@@ -437,12 +437,12 @@
 <text x="131.1" y="515.5">#+     |}}00%\#}              \%#+] [{</text>
 <text x="131.1" y="528.9">\\&lt;0    |&lt;&lt;}1$*        +     #=]\&gt;  /+</text>
 <text x="138.3" y="542.2">&lt;$$1]                 #=|/$$\&gt;&gt;*    &lt;\</text>
-<text x="152.7" y="555.6">&gt;*|&gt;                &gt;=0}=}|+|     &lt;}$</text>
-<text x="160.0" y="569.1">*}0{}           |]]\}/}/0=       0/}\/{</text>
+<text x="152.7" y="555.7">&gt;*|&gt;                &gt;=0}=}|+|     &lt;}$</text>
+<text x="160.0" y="569.0">*}0{}           |]]\}/}/0=       0/}\/{</text>
 <text x="174.4" y="582.5">%#0#{$&lt;&lt;+|100[0&lt;&gt;}]$#|]        % =$%/]+}</text>
 <text x="188.8" y="595.9">&gt;&gt;%\\&gt;}/\|]{\}=\$              $= |\$|&lt;0</text>
 <text x="203.3" y="609.2">\&lt;%%00\+#]}\                &lt;]#=\  %}/+=</text>
-<text x="181.6" y="622.6">1${\0[|\+[                    |{|0$  1+   $</text>
+<text x="181.6" y="622.7">1${\0[|\+[                    |{|0$  1+   $</text>
 </g>
 <g class="cg5">
 <text x="181.6" y="100.1">{{+      +\1=1/{#%\</text>
@@ -459,12 +459,12 @@
 <text x="66.1" y="247.5">{&gt;*{&lt;|\0                          {&gt;$[\+[&gt;/[*}[ &lt;&lt;&gt;0#</text>
 <text x="73.3" y="260.9">]|][/&gt;                              [*\$1\$/&lt;#$$/11$</text>
 <text x="66.1" y="274.2">1{=%*\\                               #[[ *][]\}*$$+/</text>
-<text x="73.3" y="287.7">&gt;&lt;%+{                                 /||1[  $|1/$#&gt;</text>
+<text x="73.3" y="287.6">&gt;&lt;%+{                                 /||1[  $|1/$#&gt;</text>
 <text x="80.5" y="301.1">0\0%                  [|$=&lt;]1*%}{0     }&gt;$0{]&lt;%$/0*</text>
 <text x="80.5" y="314.5">]1&gt;|&gt;0*&gt;&lt;%}        0}[}{]*/]+1&lt;1&gt;0&gt;={/  &lt;{%*01+[}*0</text>
 <text x="87.8" y="327.9">=[$#%}]][#&lt;}+     0}]+/=\]&gt;&gt;//&gt;$#|]0\*}}\]&gt;&lt;%&lt;1=*</text>
 <text x="73.3" y="341.2">&lt;[1}|%[[1\&gt;/|#=]|*[%0}={{#&lt;1$[}0\1=1%=\10/&lt;11{0$$01</text>
-<text x="66.1" y="354.7">0{$&gt;&lt;[&lt;&lt;##+[&gt;%+&gt;&lt;+1#}*  &lt;&lt;|1|+#|/&gt;* \+     &lt;0+0%|%&lt;1#</text>
+<text x="66.1" y="354.6">0{$&gt;&lt;[&lt;&lt;##+[&gt;%+&gt;&lt;+1#}*  &lt;&lt;|1|+#|/&gt;* \+     &lt;0+0%|%&lt;1#</text>
 <text x="66.1" y="368.1">][]|1*=0+00#]&gt;*0#[+]|[#  1|//|      |%      [\1}+ $+&gt;</text>
 <text x="73.3" y="381.5">\#[ %&lt;0$*1|   +\\   0*/   ]0      &lt;/|      *\|&lt;| ={#</text>
 <text x="80.5" y="394.9">&gt;[ +#        |&lt;     &gt;&gt;}#       {#=0       #&gt;=[  $|</text>
@@ -479,12 +479,12 @@
 <text x="131.1" y="515.5">=0     =}1{1&lt;}+[              1{&gt;#$ |0</text>
 <text x="131.1" y="528.9">0+[&gt;    &lt;&gt;[%[/[        {     ]=|#=  &gt;|</text>
 <text x="138.3" y="542.2">%}1*\                 1=[+&lt;1[*$}    }|</text>
-<text x="152.7" y="555.6">}1=]                {=\\0*&lt;=[     $+1</text>
-<text x="160.0" y="569.1">&gt;**$|           $|/#\#1]\+       {*\}=&lt;</text>
+<text x="152.7" y="555.7">}1=]                {=\\0*&lt;=[     $+1</text>
+<text x="160.0" y="569.0">&gt;**$|           $|/#\#1]\+       {*\}=&lt;</text>
 <text x="174.4" y="582.5">{+#[]{|==[]=+|=&lt;*#\}{%+        } \]*/*}[</text>
 <text x="188.8" y="595.9">+&gt;*={{&lt;|}[{{{&gt;#|0              +&lt; 1|[#/}</text>
 <text x="203.3" y="609.2">#\}{/+&gt;1]*{$                |$}$%  *\0]{</text>
-<text x="181.6" y="622.6">|01+0|&gt;$=&lt;                    =|*%*  [#   |</text>
+<text x="181.6" y="622.7">|01+0|&gt;$=&lt;                    =|*%*  [#   |</text>
 </g>
 <g class="cg6">
 <text x="181.6" y="100.1">=&gt;0      +][]1*&lt;%$+</text>
@@ -501,12 +501,12 @@
 <text x="66.1" y="247.5">+*1#00\0                          //**[0$$|%|0* [=%[1</text>
 <text x="73.3" y="260.9">&gt;}{{[&gt;                              ${&gt;%###0|&lt;|#*|=|</text>
 <text x="66.1" y="274.2">/=%&lt;+01                               $*1 &gt;\}$0+{+10{</text>
-<text x="73.3" y="287.7">/1]=0                                 *%*}+  +|[[[*$</text>
+<text x="73.3" y="287.6">/1]=0                                 *%*}+  +|[[[*$</text>
 <text x="80.5" y="301.1">\#}]                  ##10#=[+&gt;{*$     }{1$/}&lt;0}[&gt;[</text>
 <text x="80.5" y="314.5">}[*$=#$\\*$        &gt;[0&lt;1#[/]#0\*&lt;=#|0[  /%1|%%\##{/</text>
 <text x="87.8" y="327.9">\$1+[]]1#\$[$     %#$*][\]&gt;|&gt;|}=]*%]1##]}&gt;#11+]+0</text>
 <text x="73.3" y="341.2">{%]1#/#{*&gt;&gt;#+[/=*|%+{[+$%\#|]10+//$\*+=\$}$&gt;&gt;&lt;|{|10</text>
-<text x="66.1" y="354.7">/&gt;&gt;&lt;&gt;1&lt;&lt;01=+|&lt;{/$&gt;#}]%  \[%+$*=&gt;]%[ /\     [11/&lt;%&lt;$%{</text>
+<text x="66.1" y="354.6">/&gt;&gt;&lt;&gt;1&lt;&lt;01=+|&lt;{/$&gt;#}]%  \[%+$*=&gt;]%[ /\     [11/&lt;%&lt;$%{</text>
 <text x="66.1" y="368.1">$*|\&gt;+&gt;\[{=$\0|*%1{=&lt;}|  =&lt;$%&lt;      \#      /\*+0 %#\</text>
 <text x="73.3" y="381.5">{=&gt; *$/00]1   |%*   &lt;%0   $\      }*=      \1%+| #%|</text>
 <text x="80.5" y="394.9">/= 0/        \#     %+}[       +/+}       &gt;[0=  \{</text>
@@ -521,12 +521,12 @@
 <text x="131.1" y="515.5">=%     #&gt;{|#%}$1              &gt;|1|{ }]</text>
 <text x="131.1" y="528.9">*/}\    *&gt;&gt;[=|#        #     }=&lt;=]  +\</text>
 <text x="138.3" y="542.2">{0=|&lt;                 1*%0&gt;10{##    *[</text>
-<text x="152.7" y="555.6">%[[0                +{%0%$[]{     *0[</text>
-<text x="160.0" y="569.1">=#\}#           }[*%=]${01       #&gt;*1=]</text>
+<text x="152.7" y="555.7">%[[0                +{%0%$[]{     *0[</text>
+<text x="160.0" y="569.0">=#\}#           }[*%=]${01       #&gt;*1=]</text>
 <text x="174.4" y="582.5">\$//%&gt;0=*{1/\{&gt;#}%1\+*[        { *&lt;+]\{$</text>
 <text x="188.8" y="595.9">0&gt;0[[#&lt;\=*{=&gt;&lt;1|=              ]&lt; &gt;{}+[+</text>
 <text x="203.3" y="609.2">%$00=={++&gt;|$                ]]&gt;+*  #&lt;&lt;+]</text>
-<text x="181.6" y="622.6">&gt;}/||&lt;]&gt;{*                    &gt;]}0%  [%   {</text>
+<text x="181.6" y="622.7">&gt;}/||&lt;]&gt;{*                    &gt;]}0%  [%   {</text>
 </g>
 <g class="cg7">
 <text x="181.6" y="100.1">]==      &lt;**1/{$=&lt;%</text>
@@ -543,12 +543,12 @@
 <text x="66.1" y="247.5">]]1$/&lt;&lt;1                          {+]/]{{}{=++$ 0*[]|</text>
 <text x="73.3" y="260.9">*&gt;+%+\                              ]&gt;*&lt;[#0&gt;}]1\==]]</text>
 <text x="66.1" y="274.2">&lt;1{}]0=                               &lt;$] +0/+=#|*\|=</text>
-<text x="73.3" y="287.7">=%&gt;%}                                 [$=[&lt;  |=+#}*]</text>
+<text x="73.3" y="287.6">=%&gt;%}                                 [$=[&lt;  |=+#}*]</text>
 <text x="80.5" y="301.1">++*/                  %==*=]/|&lt;&lt;]1     1=$+&lt;=1%$+{&gt;</text>
 <text x="80.5" y="314.5">\&lt;0$0$&lt;$*//        &gt;{#}||]#*/&gt;&gt;/\$*{}#  \$/|**%&lt;*%\</text>
 <text x="87.8" y="327.9">}1=1+%|[{/\&lt;[     0%$0]1/\{#\0$/}}#*$\&lt;%}\{=&gt;+#*\</text>
 <text x="73.3" y="341.2">}&lt;%&lt;|+]&lt;{[%[+$&gt;+|}\=+%/\/%{[&gt;\{]&lt;\*=/{&lt;]}&gt;%$]}]&lt;{%#</text>
-<text x="66.1" y="354.7">+++=&gt;\[{&gt;0{&lt;1]*=0*\$|$  1+0**}\%[%\ $\     ]{}=#00//1</text>
+<text x="66.1" y="354.6">+++=&gt;\[{&gt;0{&lt;1]*=0*\$|$  1+0**}\%[%\ $\     ]{}=#00//1</text>
 <text x="66.1" y="368.1">#1]%+{/{+[\\&lt;&gt;+#%%=*#\1  [[==&gt;      \}      /\]=} &gt;+[</text>
 <text x="73.3" y="381.5">}$| #\==}+&lt;   ]]]   }&gt;%   &lt;%      {&gt;#      =1\{\ {{*</text>
 <text x="80.5" y="394.9">%$ *#        1/     |0}[       11#$       0**&lt;  ##</text>
@@ -563,12 +563,12 @@
 <text x="131.1" y="515.5">*{     $$*|}=||\              [][[# &lt;/</text>
 <text x="131.1" y="528.9">$%}=    %+&lt;+=|{        *     ]1+*}  &lt;%</text>
 <text x="138.3" y="542.2">01&gt;=#                 =++$$|%/[=    #=</text>
-<text x="152.7" y="555.6">&lt;{{[                [&gt;+{\%=$#     |0&gt;</text>
-<text x="160.0" y="569.1">%+&lt;$=           1{]/&gt;%{]]1       0%=|$*</text>
+<text x="152.7" y="555.7">&lt;{{[                [&gt;+{\%=$#     |0&gt;</text>
+<text x="160.0" y="569.0">%+&lt;$=           1{]/&gt;%{]]1       0%=|$*</text>
 <text x="174.4" y="582.5">\}/&gt;0#+%]{=%%00&gt;#00|*{\        $ ]*/=+[]</text>
 <text x="188.8" y="595.9">}/}*+&lt;#*&gt;=${/[*{/              &lt;&gt; }]]1%&gt;</text>
 <text x="203.3" y="609.2">1/{]0=*[{&lt;1%                /*=1{  &gt;+=&lt;+</text>
-<text x="181.6" y="622.6">1\#}+*=+\&lt;                    %]0**  %[   \</text>
+<text x="181.6" y="622.7">1\#}+*=+\&lt;                    %]0**  %[   \</text>
 </g>
 <g class="cg8">
 <text x="181.6" y="100.1">$[|      {/=$$+0\$\</text>
@@ -585,12 +585,12 @@
 <text x="66.1" y="247.5">1\1$*&lt;+}                          =]#/=0#&gt;{&lt;*{[ /{/]&lt;</text>
 <text x="73.3" y="260.9">/#%&lt;%%                              &gt;}$\/+0$0#*|#%}+</text>
 <text x="66.1" y="274.2">0+%}]*/                               $#&gt; *%\+0\0\&gt;$#</text>
-<text x="73.3" y="287.7">$&lt;%+%                                 \}\%$  &gt;%[[]$[</text>
+<text x="73.3" y="287.6">$&lt;%+%                                 \}\%$  &gt;%[[]$[</text>
 <text x="80.5" y="301.1">#={=                  1=&lt;[[}$]{&gt;&gt;&lt;     $%0&gt;/0&gt;||[1*</text>
 <text x="80.5" y="314.5">+]{1=&lt;&lt;&lt;{=\        \$}&lt;*&lt;#0[#&gt;&gt;=%[#]&lt;#  $=[|0}==[+%</text>
 <text x="87.8" y="327.9">%[[}{&lt;]}&lt;/0&lt;]     1=|+$*}%1%*}[=1|]0$/}}%\+$&lt;|=}#</text>
 <text x="73.3" y="341.2">%#|+]%{]0{]&lt;&gt;=&lt;1%][$&gt;/%/1$=$%}[$0&lt;]+{&gt;*&gt;0$&gt;}]&gt;[11&lt;]</text>
-<text x="66.1" y="354.7">0}/}|*%{$|[1]0%$}&lt;+}+$  ={*{&lt;1|&lt;/{1 01     &lt;#}+/=\{/\</text>
+<text x="66.1" y="354.6">0}/}|*%{$|[1]0%$}&lt;+}+$  ={*{&lt;1|&lt;/{1 01     &lt;#}+/=\{/\</text>
 <text x="66.1" y="368.1">{#|+\||&gt;#}1#]\*&lt;+1&gt;#}=\  ]*+[}      $0      #\#[&gt; *=&gt;</text>
 <text x="73.3" y="381.5">|*[ $*&lt;|#][   *[$   &gt;0&lt;   }$      $|}      01{&gt;&gt; #{1</text>
 <text x="80.5" y="394.9">#[ =&lt;        }1     |&gt;%{       =#//       1&gt;&gt;1  ]{</text>
@@ -605,12 +605,12 @@
 <text x="131.1" y="515.5">+1     |[#&gt;#/+\]              }1]=# *+</text>
 <text x="131.1" y="528.9">1%&lt;=    ++*0%*\        &lt;     *#0{{  \$</text>
 <text x="138.3" y="542.2">{//#[                 /&gt;}[*]+=[#    \\</text>
-<text x="152.7" y="555.6">*/{0                &gt;0${=0=]/     0}/</text>
-<text x="160.0" y="569.1">%+#&lt;[           &lt;}[[+\|}{*       #%[&gt;*%</text>
+<text x="152.7" y="555.7">*/{0                &gt;0${=0=]/     0}/</text>
+<text x="160.0" y="569.0">%+#&lt;[           &lt;}[[+\|}{*       #%[&gt;*%</text>
 <text x="174.4" y="582.5">{0=&gt;&lt;/{\0%%}+#[#[%=%&gt;{{        $ +\++%=|</text>
 <text x="188.8" y="595.9">[&gt;&lt;%+{1}|++&lt;=&lt;&lt;{|              /| ]/[=+%</text>
 <text x="203.3" y="609.2">%[|#\+*{{&gt;#*                }[#/1  ]/[0|</text>
-<text x="181.6" y="622.6">[$$}/0\&gt;$\                    0%&gt;]+  ]\   &lt;</text>
+<text x="181.6" y="622.7">[$$}/0\&gt;$\                    0%&gt;]+  ]\   &lt;</text>
 </g>
 <g class="cg9">
 <text x="181.6" y="100.1">[\#      1[#\$&lt;0*&lt;&gt;</text>
@@ -627,12 +627,12 @@
 <text x="66.1" y="247.5">&gt;&gt;][&gt;+1&gt;                          |1}&gt;&gt;|}|*=\#] +|&gt;}|</text>
 <text x="73.3" y="260.9">1&gt;==*]                              &lt;}+#{0]*$==%=#%=</text>
 <text x="66.1" y="274.2">&gt;/\0&lt;[\                               |+/ /[$+1&gt;$|$|]</text>
-<text x="73.3" y="287.7">}1=[\                                 %/10$  0&gt;#0/=0</text>
+<text x="73.3" y="287.6">}1=[\                                 %/10$  0&gt;#0/=0</text>
 <text x="80.5" y="301.1">}&lt;]$                  //=}/|%*|&gt;}/     {$&gt;}}=&lt;\0&gt;%%</text>
 <text x="80.5" y="314.5">0]#0|==$]+}        ={+=#==%}*1+\}//0\+  =/#{[]|0++/</text>
 <text x="87.8" y="327.9">&gt;]==$1$|=//\{     00&lt;]%[|/&lt;+[*$}&gt;1{}0*1=&lt;*#\+*0\=</text>
 <text x="73.3" y="341.2">[&lt;/}&lt;{/{$1\|[]0\=%&gt;1]*%$|{\&gt;0}[|$*[/|#&gt;\{%*=\$&lt;+0$%</text>
-<text x="66.1" y="354.7">{&gt;[+0%1+\&gt;1&gt;=&gt;=##+]#*$  %|/*/${%}]$ ]1     \{=/#|\&gt;+0</text>
+<text x="66.1" y="354.6">{&gt;[+0%1+\&gt;1&gt;=&gt;=##+]#*$  %|/*/${%}]$ ]1     \{=/#|\&gt;+0</text>
 <text x="66.1" y="368.1">&lt;]$#//]%]$={#%0//1[}$*}  \%0%\      |%      }|\&gt;+ }/&gt;</text>
 <text x="73.3" y="381.5">0#0 ][}|&lt;&lt;|   &gt;0#   *1*   [|      $}0      /[\%= {+/</text>
 <text x="80.5" y="394.9">/1 }[        #0     %&gt;\$       +[%%       /=0*  [|</text>
@@ -647,12 +647,12 @@
 <text x="131.1" y="515.5">1$     0#++%{=\&lt;              {||0= +=</text>
 <text x="131.1" y="528.9">]|/0    1=*%#*%        \     0[0/#  {[</text>
 <text x="138.3" y="542.2">[[**&lt;                 |=#$&lt;/|}}$    */</text>
-<text x="152.7" y="555.6">/+\]                [\|%#&lt;&gt;${     &gt;=#</text>
-<text x="160.0" y="569.1">0%=/\           //}/0||}}0       =[]$${</text>
+<text x="152.7" y="555.7">/+\]                [\|%#&lt;&gt;${     &gt;=#</text>
+<text x="160.0" y="569.0">0%=/\           //}/0||}}0       =[]$${</text>
 <text x="174.4" y="582.5">#&lt;*0+}[[#[{|]}#+|=|}*&lt;$        $ #\{*00+</text>
 <text x="188.8" y="595.9">}0]&gt;\{*+}$={][/%&gt;              ]&gt; {1=]&lt;}</text>
 <text x="203.3" y="609.2">%&lt;0#}\&gt;*/]+\                %00#]  \00}/</text>
-<text x="181.6" y="622.6">\*\0]$==+\                    0*}+/  %%   ]</text>
+<text x="181.6" y="622.7">\*\0]$==+\                    0*}+/  %%   ]</text>
 </g>
 </g>
 </g>
@@ -674,7 +674,7 @@
 <text x="538" y="369.1"><tspan class="br"> ├ </tspan><tspan class="sk">Frameworks</tspan><tspan class="ar"> → </tspan><tspan class="vl">Laravel · Vue.js · Adonis</tspan></text>
 <text x="538" y="392.1"><tspan class="br"> └ </tspan><tspan class="sk">AI</tspan><tspan class="ar"> → </tspan><tspan class="vl">LLM · Agents · MCP · RAG</tspan></text>
 <text x="538" y="438.1"><tspan class="tk">STATS</tspan><tspan class="ar"> → </tspan><tspan class="vl">Past Year</tspan></text>
-<text x="538" y="461.1"><tspan class="br"> └ </tspan><tspan class="vl">1,429</tspan><tspan class="sk"> commits</tspan><tspan class="br">  ·  </tspan><tspan class="vl">2,555</tspan><tspan class="sk"> PRs</tspan><tspan class="br">  ·  </tspan><tspan class="vl">133</tspan><tspan class="sk"> stars</tspan></text>
+<text x="538" y="461.1"><tspan class="br"> └ </tspan><tspan class="vl">2,087</tspan><tspan class="sk"> commits</tspan><tspan class="br">  ·  </tspan><tspan class="vl">3,226</tspan><tspan class="sk"> PRs</tspan><tspan class="br">  ·  </tspan><tspan class="vl">145</tspan><tspan class="sk"> stars</tspan></text>
 <text x="538" y="507.1"><tspan class="tk">EDU</tspan><tspan class="ar"> → </tspan><tspan class="vl">Madha Engineering College</tspan></text>
 <text x="538" y="530.1"><tspan class="br"> └ </tspan><tspan class="sk">Degree</tspan><tspan class="ar"> → </tspan><tspan class="vl">B.E. Computer Science</tspan></text>
 <text x="538" y="576.1"><tspan class="tk">WWW</tspan><tspan class="ar"> → </tspan><tspan class="vl">Links</tspan></text>
